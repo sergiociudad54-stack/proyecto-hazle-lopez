@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceso Privado - Proyectos Hazle López</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --accent: #c0392b;
+            --bg: #fdfbf7;
+            --text: #2d3436;
+            --gradient: linear-gradient(135deg, #fdfbf7 0%, #f5f0e1 100%);
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--gradient);
+            color: var(--text);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+        .container {
+            padding: 4rem;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            max-width: 500px;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 4.5rem;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            font-weight: 400;
+        }
+        .subtitle {
+            font-size: 1.2rem;
+            color: #636e72;
+            margin-bottom: 2.5rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .enter-btn {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            background-color: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(192, 57, 43, 0.2);
+        }
+        .enter-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(192, 57, 43, 0.3);
+            background-color: #a93226;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Hazle López</h1>
+        <div class="subtitle">Clase de Español Personalizada</div>
+        <p style="margin-bottom: 2rem; color: #636e72;">Bienvenida a tu espacio de aprendizaje, Hazle. Todo está listo para tu lección de hoy.</p>
+        <a href="estudiante-inglesa-basico/index.html" class="enter-btn">Comenzar Lección</a>
+    </div>
+</body>
+</html>

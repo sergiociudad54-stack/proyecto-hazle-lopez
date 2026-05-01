@@ -1,0 +1,301 @@
+:root {
+    --bg-color: #fdfbf7;
+    --card-bg: #ffffff;
+    --text-primary: #2d3436;
+    --text-secondary: #636e72;
+    --accent-color: #c0392b;
+    --secondary-accent: #2980b9;
+    --success: #27ae60;
+    --font-main: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --font-fancy: 'Great Vibes', cursive;
+    --shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    --border-radius: 12px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.back-link {
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    display: inline-block;
+    margin-bottom: 1.5rem;
+}
+
+h1 {
+    font-family: var(--font-fancy);
+    font-size: 4rem;
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
+    font-weight: 400;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+/* Lesson Navigation */
+.lesson-nav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.nav-btn {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    background: var(--card-bg);
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--text-secondary);
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.nav-btn.active {
+    background: var(--accent-color);
+    color: white;
+}
+
+.nav-btn:hover:not(.active) {
+    transform: translateY(-2px);
+    border-color: var(--accent-color);
+}
+
+/* Lesson Content */
+.lesson-card {
+    background: var(--card-bg);
+    padding: 2.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.lesson-card.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: var(--accent-color);
+    border-bottom: 2px solid #eee;
+    padding-bottom: 0.5rem;
+}
+
+h3 {
+    margin: 1.5rem 0 1rem;
+    color: var(--secondary-accent);
+}
+
+.explanation {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-left: 4px solid var(--secondary-accent);
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+
+.bilingual-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.lang-column h4 {
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+}
+
+.vocab-list {
+    list-style: none;
+}
+
+.vocab-item {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #f0f0f0;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Drag and Drop Styling */
+.exercise-container {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 2px dashed #eee;
+}
+
+.drop-zones {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.drop-item {
+    background: #fdfdfd;
+    border: 2px dashed #ccc;
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    text-align: center;
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.drop-item.hover {
+    border-color: var(--accent-color);
+    background: #fff5f5;
+}
+
+.drop-label {
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.draggables {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    background: #f1f2f6;
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+}
+
+.draggable {
+    background: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    cursor: grab;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    font-weight: 600;
+    user-select: none;
+    transition: transform 0.2s;
+}
+
+.draggable:active {
+    cursor: grabbing;
+}
+
+.draggable.placed {
+    background: var(--success);
+    color: white;
+    cursor: default;
+}
+
+.feedback {
+    text-align: center;
+    margin-top: 1rem;
+    font-weight: 600;
+    height: 1.5rem;
+}
+
+/* Specific for Reading Text */
+.reading-text {
+    font-size: 1.2rem;
+    background: #fffcf0;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    border: 1px solid #f3e5ab;
+    margin-bottom: 2rem;
+    font-style: italic;
+}
+
+.questions-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.question-block {
+    background: white;
+    padding: 1.2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+}
+
+.options-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.option-btn {
+    padding: 10px;
+    border: 1px solid #ddd;
+    background: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.option-btn:hover {
+    background: #f0f0f0;
+}
+
+.option-btn.correct {
+    background: var(--success);
+    color: white;
+    border-color: var(--success);
+}
+
+.option-btn.wrong {
+    background: var(--accent-color);
+    color: white;
+    border-color: var(--accent-color);
+}
+
+@media (max-width: 600px) {
+    .bilingual-block {
+        grid-template-columns: 1fr;
+    }
+    h1 {
+        font-size: 3rem;
+    }
+}
