@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clase de Español para Principiantes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Great+Vibes&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <header>
+            <a href="../index.html" class="back-link">← Volver a mis lecciones</a>
+            <h1>Español con Hazle</h1>
+            <p class="subtitle">Tu curso de español / Your Spanish Course</p>
+            <div class="name-input-container" style="margin-top: 1rem;">
+                <label for="student-name">¿Cómo te llamas? (What is your name?)</label><br>
+                <input type="text" id="student-name" value="Hazle" placeholder="Tu nombre aquí..."
+                    style="padding: 0.5rem; border-radius: 20px; border: 1px solid #ddd; margin-top: 0.5rem; width: 200px; text-align: center;">
+            </div>
+        </header>
+
+        <!-- LESSON MENU -->
+        <div id="course-menu" class="lesson-grid"
+            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 3rem;">
+            <div class="menu-card" onclick="showLesson(1)"
+                style="background: white; padding: 2rem; border-radius: 20px; box-shadow: var(--shadow); cursor: pointer; text-align: center; transition: transform 0.3s;">
+                <div style="font-size: 3rem; margin-bottom: 1rem;">🔢</div>
+                <h3 style="color: var(--accent-color);">Números 0-9</h3>
+                <p style="color: #666; font-size: 0.9rem;">Basic numbers and pronunciation.</p>
+            </div>
+            <div class="menu-card" onclick="showLesson(2)"
+                style="background: white; padding: 2rem; border-radius: 20px; box-shadow: var(--shadow); cursor: pointer; text-align: center; transition: transform 0.3s;">
+                <div style="font-size: 3rem; margin-bottom: 1rem;">🎂</div>
+                <h3 style="color: var(--accent-color);">Calendario</h3>
+                <p style="color: #666; font-size: 0.9rem;">Dates, 1-31 and birthdays.</p>
+            </div>
+            <div class="menu-card" onclick="showLesson(3)"
+                style="background: white; padding: 2rem; border-radius: 20px; box-shadow: var(--shadow); cursor: pointer; text-align: center; transition: transform 0.3s;">
+                <div style="font-size: 3rem; margin-bottom: 1rem;">📅</div>
+                <h3 style="color: var(--accent-color);">Días</h3>
+                <p style="color: #666; font-size: 0.9rem;">Days of the week and routine.</p>
+            </div>
+            <div class="menu-card" onclick="showLesson(4)"
+                style="background: white; padding: 2rem; border-radius: 20px; box-shadow: var(--shadow); cursor: pointer; text-align: center; transition: transform 0.3s;">
+                <div style="font-size: 3rem; margin-bottom: 1rem;">🗓️</div>
+                <h3 style="color: var(--accent-color);">Meses</h3>
+                <p style="color: #666; font-size: 0.9rem;">Months of the year and festivities.</p>
+            </div>
+            <div class="menu-card" onclick="showLesson(5)"
+                style="background: white; padding: 2rem; border-radius: 20px; box-shadow: var(--shadow); cursor: pointer; text-align: center; transition: transform 0.3s;">
+                <div style="font-size: 3rem; margin-bottom: 1rem;">✍️</div>
+                <h3 style="color: var(--accent-color);">Ser / Estar</h3>
+                <p style="color: #666; font-size: 0.9rem;">Mastering the verb "To Be".</p>
+            </div>
+            <div class="menu-card" onclick="showLesson(6)"
+                style="background: white; padding: 2rem; border-radius: 20px; box-shadow: var(--shadow); cursor: pointer; text-align: center; transition: transform 0.3s;">
+                <div style="font-size: 3rem; margin-bottom: 1rem;">🇲🇽</div>
+                <h3 style="color: var(--accent-color);">Lectura</h3>
+                <p style="color: #666; font-size: 0.9rem;">Reading about "Día de los Muertos".</p>
+            </div>
+        </div>
+
+        <nav class="lesson-nav" style="display: none; margin-top: 2rem;">
+            <button class="nav-btn" onclick="goToMenu()">🏠 Menú de Lecciones</button>
+            <button class="nav-btn" onclick="speak('¡Hola Heizel! El audio está activado.', 'es-ES', 1.0, 1.2)"
+                style="background-color: #ecf0f1; color: #7f8c8d;">🔊 Probar Sonido</button>
+        </nav>
+
+        <!-- LESSON 1: NUMBERS 0-9 -->
+        <div id="lesson1" class="lesson-card">
+            <button onclick="goToMenu()"
+                style="border: none; background: none; color: var(--secondary-accent); cursor: pointer; margin-bottom: 1rem; font-weight: 600;">←
+                Volver al menú</button>
+            <h2>Los Números (0-9)</h2>
+            <div class="explanation">
+                <p><strong>English:</strong> Let's start with the basic digits. Drag the Spanish word to the correct
+                    number.</p>
+            </div>
+
+            <div class="numbers-grid"
+                style="display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; margin-bottom: 2rem;">
+                <div class="number-box"
+                    style="padding: 10px; border: 1px solid #eee; border-radius: 8px; display: flex; align-items: center; justify-content: space-between;">
+                    <span>0. Cero</span> <button onclick="speak('Cero', 'es-ES')"
+                        style="background:none; border:none; cursor:pointer; font-size:1.2rem;">🔊</button>
+                </div>
+                <div class="number-box"
+                    style="padding: 10px; border: 1px solid #eee; border-radius: 8px; display: flex; align-items: center; justify-content: space-between;">
+                    <span>1. Uno</span> <button onclick="speak('Uno', 'es-ES')"
+                        style="background:none; border:none; cursor:pointer; font-size:1.2rem;">🔊</button>
+                </div>
+                <div class="number-box"
+                    style="padding: 10px; border: 1px solid #eee; border-radius: 8px; display: flex; align-items: center; justify-content: space-between;">
+                    <span>2. Dos</span> <button onclick="speak('Dos', 'es-ES')"
+                        style="background:none; border:none; cursor:pointer; font-size:1.2rem;">🔊</button>
+                </div>
+                <div class="number-box"
+                    style="padding: 10px; border: 1px solid #eee; border-radius: 8px; display: flex; align-items: center; justify-content: space-between;">
+                    <span>3. Tres</span> <button onclick="speak('Tres', 'es-ES')"
+                        style="background:none; border:none; cursor:pointer; font-size:1.2rem;">🔊</button>
+                </div>
+                <div class="number-box"
+                    style="padding: 10px; border: 1px solid #eee; border-radius: 8px; display: flex; align-items: center; justify-content: space-between;">
+                    <span>4. Cuatro</span> <button onclick="speak('Cuatro', 'es-ES')"
+                        style="background:none; border:none; cursor:pointer; font-size:1.2rem;">🔊</button>
+                </div>
+                <div class="number-box"
+                    style="padding: 10px; border: 1px solid #eee; border-radius: 8px; display: flex; align-items: center; justify-content: space-between;">
+                    <span>5. Cinco</span> <button onclick="speak('Cinco', 'es-ES')"
+                        style="background:none; border:none; cursor:pointer; font-size:1.2rem;">🔊</button>
+                </div>
+                <div class="number-box"
+                    style="padding: 10px; border: 1px solid #eee; border-radius: 8px; display: flex; align-items: center; justify-content: space-between;">
+                    <span>6. Seis</span> <button onclick="speak('Seis', 'es-ES')"
+                        style="background:none; border:none; cursor:pointer; font-size:1.2rem;">🔊</button>
+                </div>
+                <div class="number-box"
+                    style="padding: 10px; border: 1px solid #eee; border-radius: 8px; display: flex; align-items: center; justify-content: space-between;">
+                    <span>7. Siete</span> <button onclick="speak('Siete', 'es-ES')"
+                        style="background:none; border:none; cursor:pointer; font-size:1.2rem;">🔊</button>
+                </div>
+                <div class="number-box"
+                    style="padding: 10px; border: 1px solid #eee; border-radius: 8px; display: flex; align-items: center; justify-content: space-between;">
+                    <span>8. Ocho</span> <button onclick="speak('Ocho', 'es-ES')"
+                        style="background:none; border:none; cursor:pointer; font-size:1.2rem;">🔊</button>
+                </div>
+                <div class="number-box"
+                    style="padding: 10px; border: 1px solid #eee; border-radius: 8px; display: flex; align-items: center; justify-content: space-between;">
+                    <span>9. Nueve</span> <button onclick="speak('Nueve', 'es-ES')"
+                        style="background:none; border:none; cursor:pointer; font-size:1.2rem;">🔊</button>
+                </div>
+            </div>
+
+            <div class="exercise-container">
+                <h3>¡Practica! / Practice!</h3>
+                <p>Arrastra el nombre al número correcto / Drag the name to the correct number:</p>
+                <div class="drop-zones" id="numbers-drops">
+                    <div class="drop-item" data-match="cinco"><span class="drop-label">5</span></div>
+                    <div class="drop-item" data-match="ocho"><span class="drop-label">8</span></div>
+                    <div class="drop-item" data-match="seis"><span class="drop-label">6</span></div>
+                    <div class="drop-item" data-match="nueve"><span class="drop-label">9</span></div>
+                    <div class="drop-item" data-match="siete"><span class="drop-label">7</span></div>
+                </div>
+                <div class="draggables" id="numbers-drags">
+                    <div class="draggable" draggable="true" id="cinco">Cinco</div>
+                    <div class="draggable" draggable="true" id="seis">Seis</div>
+                    <div class="draggable" draggable="true" id="siete">Siete</div>
+                    <div class="draggable" draggable="true" id="ocho">Ocho</div>
+                    <div class="draggable" draggable="true" id="nueve">Nueve</div>
+                </div>
+                <p class="feedback" id="feedback1"></p>
+            </div>
+        </div>
+
+        <!-- LESSON 2: NUMBERS 1-31 (BIRTHDAYS) -->
+        <div id="lesson2" class="lesson-card">
+            <button onclick="goToMenu()"
+                style="border: none; background: none; color: var(--secondary-accent); cursor: pointer; margin-bottom: 1rem; font-weight: 600;">←
+                Volver al menú</button>
+            <h2>Números 1-31 y Fechas</h2>
+            <div class="explanation">
+                <p><strong>English:</strong> Here are all the numbers you need for the days of the month. Click the 🔊
+                    icon to hear them.</p>
+            </div>
+
+            <div class="numbers-grid"
+                style="display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; margin-bottom: 2rem;">
+                <!-- Numbers will be populated or listed here -->
+                <div class="number-box"
+                    style="padding: 10px; border: 1px solid #eee; border-radius: 8px; display: flex; align-items: center; justify-content: space-between;">
+                    <span>1. Uno</span> <button onclick="speak('Uno', 'es-ES')"
+                        style="background:none; border:none; cursor:pointer; font-size:1.2rem;">🔊</button>
+                </div>
+                <div class="number-box"
+                    style="padding: 10px; border: 1px solid #eee; border-radius: 8px; display: flex; align-items: center; justify-content: space-between;">
+                    <span>2. Dos</span> <button onclick="speak('Dos', 'es-ES')"
+                        style="background:none; border:none; cursor:pointer; font-size:1.2rem;">🔊</button>
+                </div>
+                <div class="number-box"
+                    style="padding: 10px; border: 1px solid #eee; border-radius: 8px; display: flex; align-items: center; justify-content: space-between;">
+                    <span>3. Tres</span> <button onclick="speak('Tres', 'es-ES')"
+                        style="background:none; border:none; cursor:pointer; font-size:1.2rem;">🔊</button>
+                </div>
+                <div class="number-box"
+                    style="padding: 10px; border: 1px solid #eee; border-radius: 8px; display: flex; align-items: center; justify-content: space-between;">
+                    <span>4. Cuatro</span> <button onclick="speak('Cuatro', 'es-ES')"
+                        style="background:none; border:none; cursor:pointer; font-size:1.2rem;">🔊</button>
+                </div>
+                <div class="number-box"
+                    style="padding: 10px; border: 1px solid #eee; border-radius: 8px; display: flex; align-items: center; justify-content: space-between;">
+                    <span>5. Cinco</span> <button onclick="speak('Cinco', 'es-ES')"
+                        style="background:none; border:none; cursor:pointer; font-size:1.2rem;">🔊</button>
+                </div>
+                <div class="number-box"
+                    style="padding: 10px; border: 1px solid #eee; border-radius: 8px; display: flex; align-items: center; justify-content: space-between;">
+                    <span>6. Seis</span> <button onclick="speak('Seis', 'es-ES')"
+                        style="background:none; border:none; cursor:pointer; font-size:1.2rem;">🔊</button>
+                </div>
+                <div class="number-box"
+                    style="padding: 10px; border: 1px solid #eee; border-radius: 8px; display: flex; align-items: center; justify-content: space-between;">
+                    <span>7. Siete</span> <button onclick="speak('Siete', 'es-ES')"
+                        style="background:none; border:none; cursor:pointer; font-size:1.2rem;">🔊</button>
+                </div>
+                <div class="number-box"
+                    style="padding: 10px; border: 1px solid #eee; border-radius: 8px; display: flex; align-items: center; justify-content: space-between;">
+                    <span>8. Ocho</span> <button onclick="speak('Ocho', 'es-ES')"
+                        style="background:none; border:none; cursor:pointer; font-size:1.2rem;">🔊</button>
+                </div>
+                <div class="number-box"
+                    style="padding: 10px; border: 1px solid #eee; border-radius: 8px; display: flex; align-items: center; justify-content: space-between;">
+                    <span>9. Nueve</span> <button onclick="speak('Nueve', 'es-ES')"
+                        style="background:none; border:none; cursor:pointer; font-size:1.2rem;">🔊</button>
+                </div>
+                <div class="number-box"
+                    style="padding: 10px; border: 1px solid #eee; border-radius: 8px; display: flex; align-items: center; justify-content: space-between;">
+                    <span>10. Diez</span> <button onclick="speak('Diez', 'es-ES')"
+                        style="background:none; border:none; cursor:pointer; font-size:1.2rem;">🔊</button>
+                </div>
+                <div class="number-box"
+                    style="padding: 10px; border: 1px solid #eee; border-radius: 8px; display: flex; align-items: center; justify-content: space-between;">
+                    <span>11. Once</span> <button onclick="speak('Once', 'es-ES')"
+                        style="background:none; border:none; cursor:pointer; font-size:1.2rem;">🔊</button>
+                </div>
+                <div class="number-box"
+                    style="padding: 10px; border: 1px solid #eee; border-radius: 8px; display: flex; align-items: center; justify-content: space-between;">
+                    <span>12. Doce</span> <button onclick="speak('Doce', 'es-ES')"
+                        style="background:none; border:none; cursor:pointer; font-size:1.2rem;">🔊</button>
+                </div>
+                <div class="number-box"
+                    style="padding: 10px; border: 1px solid #eee; border-radius: 8px; display: flex; align-items: center; justify-content: space-between;">
+                    <span>13. Trece</span> <button onclick="speak('Trece', 'es-ES')"
+                        style="background:none; border:none; cursor:pointer; font-size:1.2rem;">🔊</button>
+                </div>
+                <div class="number-box"
+                    style="padding: 10px; border: 1px solid #eee; border-radius: 8px; display: flex; align-items: center; justify-content: space-between;">
+                    <span>14. Catorce</span> <button onclick="speak('Catorce', 'es-ES')"
+                        style="background:none; border:none; cursor:pointer; font-size:1.2rem;">🔊</button>
+                </div>
+                <div class="number-box"
+                    style="padding: 10px; border: 1px solid #eee; border-radius: 8px; display: flex; align-items: center; justify-content: space-between;">
+                    <span>15. Quince</span> <button onclick="speak('Quince', 'es-ES')"
+                        style="background:none; border:none; cursor:pointer; font-size:1.2rem;">🔊</button>
+                </div>
+                <div class="number-box"
+                    style="padding: 10px; border: 1px solid #eee; border-radius: 8px; display: flex; align-items: center; justify-content: space-between;">
+                    <span>16. Dieciséis</span> <button onclick="speak('Dieciséis', 'es-ES')"
+                        style="background:none; border:none; cursor:pointer; font-size:1.2rem;">🔊</button>
+                </div>
+                <div class="number-box"
+                    style="padding: 10px; border: 1px solid #eee; border-radius: 8px; display: flex; align-items: center; justify-content: space-between;">
+                    <span>17. Diecisiete</span> <button onclick="speak('Diecisiete', 'es-ES')"
+                        style="background:none; border:none; cursor:pointer; font-size:1.2rem;">🔊</button>
+                </div>
+                <div class="number-box"
+                    style="padding: 10px; border: 1px solid #eee; border-radius: 8px; display: flex; align-items: center; justify-content: space-between;">
+                    <span>18. Dieciocho</span> <button onclick="speak('Dieciocho', 'es-ES')"
+                        style="background:none; border:none; cursor:pointer; font-size:1.2rem;">🔊</button>
+                </div>
+                <div class="number-box"
+                    style="padding: 10px; border: 1px solid #eee; border-radius: 8px; display: flex; align-items: center; justify-content: space-between;">
+                    <span>19. Diecinueve</span> <button onclick="speak('Diecinueve', 'es-ES')"
+                        style="background:none; border:none; cursor:pointer; font-size:1.2rem;">🔊</button>
+                </div>
+                <div class="number-box"
+                    style="padding: 10px; border: 1px solid #eee; border-radius: 8px; display: flex; align-items: center; justify-content: space-between;">
+                    <span>20. Veinte</span> <button onclick="speak('Veinte', 'es-ES')"
+                        style="background:none; border:none; cursor:pointer; font-size:1.2rem;">🔊</button>
+                </div>
+                <div class="number-box"
+                    style="padding: 10px; border: 1px solid #eee; border-radius: 8px; display: flex; align-items: center; justify-content: space-between;">
+                    <span>21. Veintiuno</span> <button onclick="speak('Veintiuno', 'es-ES')"
+                        style="background:none; border:none; cursor:pointer; font-size:1.2rem;">🔊</button>
+                </div>
+                <div class="number-box"
+                    style="padding: 10px; border: 1px solid #eee; border-radius: 8px; display: flex; align-items: center; justify-content: space-between;">
+                    <span>22. Veintidós</span> <button onclick="speak('Veintidós', 'es-ES')"
+                        style="background:none; border:none; cursor:pointer; font-size:1.2rem;">🔊</button>
+                </div>
+                <div class="number-box"
+                    style="padding: 10px; border: 1px solid #eee; border-radius: 8px; display: flex; align-items: center; justify-content: space-between;">
+                    <span>23. Veintitrés</span> <button onclick="speak('Veintitrés', 'es-ES')"
+                        style="background:none; border:none; cursor:pointer; font-size:1.2rem;">🔊</button>
+                </div>
+                <div class="number-box"
+                    style="padding: 10px; border: 1px solid #eee; border-radius: 8px; display: flex; align-items: center; justify-content: space-between;">
+                    <span>24. Veinticuatro</span> <button onclick="speak('Veinticuatro', 'es-ES')"
+                        style="background:none; border:none; cursor:pointer; font-size:1.2rem;">🔊</button>
+                </div>
+                <div class="number-box"
+                    style="padding: 10px; border: 1px solid #eee; border-radius: 8px; display: flex; align-items: center; justify-content: space-between;">
+                    <span>25. Veinticinco</span> <button onclick="speak('Veinticinco', 'es-ES')"
+                        style="background:none; border:none; cursor:pointer; font-size:1.2rem;">🔊</button>
+                </div>
+                <div class="number-box"
+                    style="padding: 10px; border: 1px solid #eee; border-radius: 8px; display: flex; align-items: center; justify-content: space-between;">
+                    <span>26. Veintiséis</span> <button onclick="speak('Veintiséis', 'es-ES')"
+                        style="background:none; border:none; cursor:pointer; font-size:1.2rem;">🔊</button>
+                </div>
+                <div class="number-box"
+                    style="padding: 10px; border: 1px solid #eee; border-radius: 8px; display: flex; align-items: center; justify-content: space-between;">
+                    <span>27. Veintisiete</span> <button onclick="speak('Veintisiete', 'es-ES')"
+                        style="background:none; border:none; cursor:pointer; font-size:1.2rem;">🔊</button>
+                </div>
+                <div class="number-box"
+                    style="padding: 10px; border: 1px solid #eee; border-radius: 8px; display: flex; align-items: center; justify-content: space-between;">
+                    <span>28. Veintiocho</span> <button onclick="speak('Veintiocho', 'es-ES')"
+                        style="background:none; border:none; cursor:pointer; font-size:1.2rem;">🔊</button>
+                </div>
+                <div class="number-box"
+                    style="padding: 10px; border: 1px solid #eee; border-radius: 8px; display: flex; align-items: center; justify-content: space-between;">
+                    <span>29. Veintinueve</span> <button onclick="speak('Veintinueve', 'es-ES')"
+                        style="background:none; border:none; cursor:pointer; font-size:1.2rem;">🔊</button>
+                </div>
+                <div class="number-box"
+                    style="padding: 10px; border: 1px solid #eee; border-radius: 8px; display: flex; align-items: center; justify-content: space-between;">
+                    <span>30. Treinta</span> <button onclick="speak('Treinta', 'es-ES')"
+                        style="background:none; border:none; cursor:pointer; font-size:1.2rem;">🔊</button>
+                </div>
+                <div class="number-box"
+                    style="padding: 10px; border: 1px solid #eee; border-radius: 8px; display: flex; align-items: center; justify-content: space-between;">
+                    <span>31. Treinta y uno</span> <button onclick="speak('Treinta y uno', 'es-ES')"
+                        style="background:none; border:none; cursor:pointer; font-size:1.2rem;">🔊</button>
+                </div>
+            </div>
+
+            <h3>Ejemplos de Fechas / Date Examples</h3>
+            <div class="date-examples"
+                style="background: #fdfbf7; padding: 1.5rem; border-radius: 12px; border: 1px solid #eee; margin-bottom: 2rem;">
+                <div class="example-row" style="margin-bottom: 1rem; display: flex; align-items: center; gap: 1rem;">
+                    <button onclick="speak('Hoy es el uno de mayo', 'es-ES')"
+                        style="background:none; border:none; cursor:pointer; font-size:1.5rem;">🔊</button>
+                    <div>
+                        <p style="font-weight: 600;">Hoy es el uno de mayo.</p>
+                        <p style="color: #666; font-size: 0.9rem;">Today is May 1st.</p>
+                    </div>
+                </div>
+                <div class="example-row" style="margin-bottom: 1rem; display: flex; align-items: center; gap: 1rem;">
+                    <button onclick="speak('Mi cumpleaños es el quince de junio', 'es-ES')"
+                        style="background:none; border:none; cursor:pointer; font-size:1.5rem;">🔊</button>
+                    <div>
+                        <p style="font-weight: 600;">Mi cumpleaños es el quince de junio.</p>
+                        <p style="color: #666; font-size: 0.9rem;">My birthday is June 15th.</p>
+                    </div>
+                </div>
+                <div class="example-row" style="margin-bottom: 1rem; display: flex; align-items: center; gap: 1rem;">
+                    <button onclick="speak('Navidad es el veinticinco de diciembre', 'es-ES')"
+                        style="background:none; border:none; cursor:pointer; font-size:1.5rem;">🔊</button>
+                    <div>
+                        <p style="font-weight: 600;">Navidad es el veinticinco de diciembre.</p>
+                        <p style="color: #666; font-size: 0.9rem;">Christmas is December 25th.</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Práctica de Cumpleaños / Birthday Practice</h3>
+            <p><em>Escucha y repite / Listen and repeat:</em></p>
+            <div class="date-examples"
+                style="background: #f0f4f8; padding: 1.5rem; border-radius: 12px; border: 1px solid #d1d8e0; margin-bottom: 2rem;">
+                <div class="example-row" style="margin-bottom: 1rem; display: flex; align-items: center; gap: 1rem;">
+                    <button onclick="speak('El cumpleaños de mi hija es el doce de marzo', 'es-ES')"
+                        style="background:none; border:none; cursor:pointer; font-size:1.5rem;">🔊</button>
+                    <div>
+                        <p style="font-weight: 600;">El cumpleaños de mi hija es el 12 de marzo.</p>
+                        <p style="color: #666; font-size: 0.9rem;">My daughter's birthday is March 12th.</p>
+                    </div>
+                </div>
+                <div class="example-row" style="margin-bottom: 1rem; display: flex; align-items: center; gap: 1rem;">
+                    <button onclick="speak('El cumpleaños de mi marido es el veintiocho de septiembre', 'es-ES')"
+                        style="background:none; border:none; cursor:pointer; font-size:1.5rem;">🔊</button>
+                    <div>
+                        <p style="font-weight: 600;">El cumpleaños de mi marido es el 28 de septiembre.</p>
+                        <p style="color: #666; font-size: 0.9rem;">My husband's birthday is September 28th.</p>
+                    </div>
+                </div>
+                <div class="example-row" style="margin-bottom: 1rem; display: flex; align-items: center; gap: 1rem;">
+                    <button onclick="speak('Mi cumpleaños es el cuatro de julio', 'es-ES')"
+                        style="background:none; border:none; cursor:pointer; font-size:1.5rem;">🔊</button>
+                    <div>
+                        <p style="font-weight: 600;">Mi cumpleaños es el 4 de julio.</p>
+                        <p style="color: #666; font-size: 0.9rem;">My birthday is July 4th.</p>
+                    </div>
+                </div>
+                <div class="example-row" style="margin-bottom: 1rem; display: flex; align-items: center; gap: 1rem;">
+                    <button onclick="speak('El cumpleaños de mi yerno es el veinte de abril', 'es-ES')"
+                        style="background:none; border:none; cursor:pointer; font-size:1.5rem;">🔊</button>
+                    <div>
+                        <p style="font-weight: 600;">El cumpleaños de mi yerno es el 20 de abril.</p>
+                        <p style="color: #666; font-size: 0.9rem;">My son-in-law's birthday is April 20th.</p>
+                    </div>
+                </div>
+                <div class="example-row" style="margin-bottom: 1rem; display: flex; align-items: center; gap: 1rem;">
+                    <button onclick="speak('El cumpleaños de mi mejor amiga es el diecinueve de agosto', 'es-ES')"
+                        style="background:none; border:none; cursor:pointer; font-size:1.5rem;">🔊</button>
+                    <div>
+                        <p style="font-weight: 600;">El cumpleaños de mi mejor amiga es el 19 de agosto.</p>
+                        <p style="color: #666; font-size: 0.9rem;">My best friend's birthday is August 19th.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="exercise-container">
+                <h3>La familia / The family</h3>
+                <p>Relaciona los nombres (Drag the names):</p>
+                <div class="drop-zones">
+                    <div class="drop-item" data-match="yerno"><span class="drop-label">Son-in-law</span></div>
+                    <div class="drop-item" data-match="hija"><span class="drop-label">Daughter</span></div>
+                    <div class="drop-item" data-match="yo"><span class="drop-label">Me</span></div>
+                    <div class="drop-item" data-match="marido"><span class="drop-label">Husband</span></div>
+                </div>
+                <div class="draggables">
+                    <div class="draggable" draggable="true" id="marido">Marido</div>
+                    <div class="draggable" draggable="true" id="yo">Yo</div>
+                    <div class="draggable" draggable="true" id="yerno">Yerno</div>
+                    <div class="draggable" draggable="true" id="hija">Hija</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- LESSON 3: DAYS OF THE WEEK -->
+        <div id="lesson3" class="lesson-card">
+            <button onclick="goToMenu()"
+                style="border: none; background: none; color: var(--secondary-accent); cursor: pointer; margin-bottom: 1rem; font-weight: 600;">←
+                Volver al menú</button>
+            <h2>Los Días de la Semana</h2>
+            <div class="explanation">
+                <p><strong>English:</strong> Days of the week in Spanish are masculine (El lunes, el martes...). They
+                    are not capitalized.</p>
+            </div>
+
+            <div class="bilingual-block">
+                <ul class="vocab-list">
+                    <li>Lunes (Monday) <button onclick="speak('Lunes', 'es-ES')"
+                            style="background:none; border:none; cursor:pointer;">🔊</button></li>
+                    <li>Martes (Tuesday) <button onclick="speak('Martes', 'es-ES')"
+                            style="background:none; border:none; cursor:pointer;">🔊</button></li>
+                    <li>Miércoles (Wednesday) <button onclick="speak('Miércoles', 'es-ES')"
+                            style="background:none; border:none; cursor:pointer;">🔊</button></li>
+                    <li>Jueves (Thursday) <button onclick="speak('Jueves', 'es-ES')"
+                            style="background:none; border:none; cursor:pointer;">🔊</button></li>
+                </ul>
+                <ul class="vocab-list">
+                    <li>Viernes (Friday) <button onclick="speak('Viernes', 'es-ES')"
+                            style="background:none; border:none; cursor:pointer;">🔊</button></li>
+                    <li>Sábado (Saturday) <button onclick="speak('Sábado', 'es-ES')"
+                            style="background:none; border:none; cursor:pointer;">🔊</button></li>
+                    <li>Domingo (Sunday) <button onclick="speak('Domingo', 'es-ES')"
+                            style="background:none; border:none; cursor:pointer;">🔊</button></li>
+                </ul>
+            </div>
+
+            <div class="exercise-container">
+                <h3>Preguntas / Questions</h3>
+                <div class="questions-container">
+                    <div class="question-block">
+                        <p><button onclick="speak('¿Qué días trabaja la gente normalmente?', 'es-ES')"
+                                style="background:none; border:none; cursor:pointer;">🔊</button> ¿Qué días trabaja la
+                            gente normalmente? <small>(What days do people normally work?)</small></p>
+                        <div class="options-grid">
+                            <button class="option-btn" onclick="checkAnswer(this, true)">Lunes a Viernes</button>
+                            <button class="option-btn" onclick="checkAnswer(this, false)">Sábado y Domingo</button>
+                        </div>
+                    </div>
+                    <div class="question-block">
+                        <p><button onclick="speak('¿Cuál es tu día favorito?', 'es-ES')"
+                                style="background:none; border:none; cursor:pointer;">🔊</button> ¿Cuál es tu día
+                            favorito? <small>(Which is your favorite day?)</small></p>
+                        <p style="font-size: 0.9rem; color: #666;">Escribe un día de la semana en español / Write a day
+                            of the week in Spanish:</p>
+                        <div style="display: flex; gap: 10px; margin-top: 10px;">
+                            <input type="text" id="fav-day-input" placeholder="Ej: Sábado"
+                                style="flex: 1; padding: 10px; border-radius: 5px; border: 1px solid #ddd;">
+                            <button class="nav-btn" onclick="checkFavoriteDay()"
+                                style="margin-bottom: 0; padding: 0 20px;">Comprobar</button>
+                        </div>
+                        <div id="fav-day-feedback" style="margin-top: 10px; font-weight: 600; min-height: 20px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- LESSON 4: MONTHS -->
+        <div id="lesson4" class="lesson-card">
+            <button onclick="goToMenu()"
+                style="border: none; background: none; color: var(--secondary-accent); cursor: pointer; margin-bottom: 1rem; font-weight: 600;">←
+                Volver al menú</button>
+            <h2>Los Meses del Año</h2>
+            <div class="explanation">
+                <p><strong>English:</strong> There are 12 months. Most are very similar to English. Click 🔊 to hear
+                    them.</p>
+            </div>
+
+            <div class="numbers-grid"
+                style="display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 10px; margin-bottom: 2rem;">
+                <div class="number-box"
+                    style="padding: 10px; border: 1px solid #eee; border-radius: 8px; display: flex; align-items: center; justify-content: space-between;">
+                    <span>Enero (January)</span> <button onclick="speak('Enero', 'es-ES')"
+                        style="background:none; border:none; cursor:pointer;">🔊</button>
+                </div>
+                <div class="number-box"
+                    style="padding: 10px; border: 1px solid #eee; border-radius: 8px; display: flex; align-items: center; justify-content: space-between;">
+                    <span>Febrero (February)</span> <button onclick="speak('Febrero', 'es-ES')"
+                        style="background:none; border:none; cursor:pointer;">🔊</button>
+                </div>
+                <div class="number-box"
+                    style="padding: 10px; border: 1px solid #eee; border-radius: 8px; display: flex; align-items: center; justify-content: space-between;">
+                    <span>Marzo (March)</span> <button onclick="speak('Marzo', 'es-ES')"
+                        style="background:none; border:none; cursor:pointer;">🔊</button>
+                </div>
+                <div class="number-box"
+                    style="padding: 10px; border: 1px solid #eee; border-radius: 8px; display: flex; align-items: center; justify-content: space-between;">
+                    <span>Abril (April)</span> <button onclick="speak('Abril', 'es-ES')"
+                        style="background:none; border:none; cursor:pointer;">🔊</button>
+                </div>
+                <div class="number-box"
+                    style="padding: 10px; border: 1px solid #eee; border-radius: 8px; display: flex; align-items: center; justify-content: space-between;">
+                    <span>Mayo (May)</span> <button onclick="speak('Mayo', 'es-ES')"
+                        style="background:none; border:none; cursor:pointer;">🔊</button>
+                </div>
+                <div class="number-box"
+                    style="padding: 10px; border: 1px solid #eee; border-radius: 8px; display: flex; align-items: center; justify-content: space-between;">
+                    <span>Junio (June)</span> <button onclick="speak('Junio', 'es-ES')"
+                        style="background:none; border:none; cursor:pointer;">🔊</button>
+                </div>
+                <div class="number-box"
+                    style="padding: 10px; border: 1px solid #eee; border-radius: 8px; display: flex; align-items: center; justify-content: space-between;">
+                    <span>Julio (July)</span> <button onclick="speak('Julio', 'es-ES')"
+                        style="background:none; border:none; cursor:pointer;">🔊</button>
+                </div>
+                <div class="number-box"
+                    style="padding: 10px; border: 1px solid #eee; border-radius: 8px; display: flex; align-items: center; justify-content: space-between;">
+                    <span>Agosto (August)</span> <button onclick="speak('Agosto', 'es-ES')"
+                        style="background:none; border:none; cursor:pointer;">🔊</button>
+                </div>
+                <div class="number-box"
+                    style="padding: 10px; border: 1px solid #eee; border-radius: 8px; display: flex; align-items: center; justify-content: space-between;">
+                    <span>Septiembre (September)</span> <button onclick="speak('Septiembre', 'es-ES')"
+                        style="background:none; border:none; cursor:pointer;">🔊</button>
+                </div>
+                <div class="number-box"
+                    style="padding: 10px; border: 1px solid #eee; border-radius: 8px; display: flex; align-items: center; justify-content: space-between;">
+                    <span>Octubre (October)</span> <button onclick="speak('Octubre', 'es-ES')"
+                        style="background:none; border:none; cursor:pointer;">🔊</button>
+                </div>
+                <div class="number-box"
+                    style="padding: 10px; border: 1px solid #eee; border-radius: 8px; display: flex; align-items: center; justify-content: space-between;">
+                    <span>Noviembre (November)</span> <button onclick="speak('Noviembre', 'es-ES')"
+                        style="background:none; border:none; cursor:pointer;">🔊</button>
+                </div>
+                <div class="number-box"
+                    style="padding: 10px; border: 1px solid #eee; border-radius: 8px; display: flex; align-items: center; justify-content: space-between;">
+                    <span>Diciembre (December)</span> <button onclick="speak('Diciembre', 'es-ES')"
+                        style="background:none; border:none; cursor:pointer;">🔊</button>
+                </div>
+            </div>
+
+            <div class="exercise-container">
+                <h3>¡Practica las festividades! / Practice festivities!</h3>
+                <div class="drop-zones">
+                    <div class="drop-item" data-match="diciembre"><span
+                            class="drop-label">Navidad</span><small>Christmas</small></div>
+                    <div class="drop-item" data-match="octubre"><span class="drop-label">Halloween</span></div>
+                    <div class="drop-item" data-match="enero"><span class="drop-label">Año Nuevo</span><small>New
+                            Year</small></div>
+                </div>
+                <div class="draggables">
+                    <div class="draggable" draggable="true" id="octubre">Octubre</div>
+                    <div class="draggable" draggable="true" id="diciembre">Diciembre</div>
+                    <div class="draggable" draggable="true" id="enero">Enero</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- LESSON 5: SER / ESTAR -->
+        <div id="lesson5" class="lesson-card">
+            <button onclick="goToMenu()"
+                style="border: none; background: none; color: var(--secondary-accent); cursor: pointer; margin-bottom: 1rem; font-weight: 600;">←
+                Volver al menú</button>
+            <h2>Verbos Ser y Estar</h2>
+
+            <!-- EXPLANATION SER -->
+            <div class="explanation">
+                <h3>1. Verbo SER (To be - Permanent)</h3>
+                <p><strong>English:</strong> Use <strong>SER</strong> for things that don't change easily: Identity,
+                    nationality, profession, and physical traits.</p>
+                <table
+                    style="width: 100%; margin-top: 10px; border-collapse: collapse; background: white; border-radius: 8px; overflow: hidden;">
+                    <tr style="background: var(--secondary-accent); color: white;">
+                        <th style="padding: 10px;">Persona</th>
+                        <th style="padding: 10px;">SER</th>
+                        <th style="padding: 10px;">Audio</th>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border-bottom: 1px solid #eee;">Yo (I)</td>
+                        <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold;">soy</td>
+                        <td style="padding: 10px; border-bottom: 1px solid #eee;"><button
+                                onclick="speak('Yo soy', 'es-ES')">🔊</button></td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border-bottom: 1px solid #eee;">Tú (You)</td>
+                        <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold;">eres</td>
+                        <td style="padding: 10px; border-bottom: 1px solid #eee;"><button
+                                onclick="speak('Tú eres', 'es-ES')">🔊</button></td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border-bottom: 1px solid #eee;">Él/Ella (He/She)</td>
+                        <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold;">es</td>
+                        <td style="padding: 10px; border-bottom: 1px solid #eee;"><button
+                                onclick="speak('Él es', 'es-ES')">🔊</button></td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border-bottom: 1px solid #eee;">Nosotros (We)</td>
+                        <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold;">somos</td>
+                        <td style="padding: 10px; border-bottom: 1px solid #eee;"><button
+                                onclick="speak('Nosotros somos', 'es-ES')">🔊</button></td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border-bottom: 1px solid #eee;">Vosotros (You all)</td>
+                        <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold;">sois</td>
+                        <td style="padding: 10px; border-bottom: 1px solid #eee;"><button
+                                onclick="speak('Vosotros sois', 'es-ES')">🔊</button></td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border-bottom: 1px solid #eee;">Ellos/Ellas (They)</td>
+                        <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold;">son</td>
+                        <td style="padding: 10px; border-bottom: 1px solid #eee;"><button
+                                onclick="speak('Ellos son', 'es-ES')">🔊</button></td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- EXERCISE SER -->
+            <div class="exercise-container">
+                <h4>Practica SER</h4>
+                <div class="question-block">
+                    <p><button onclick="speak('Ella es mi hija', 'es-ES')"
+                            style="background:none; border:none; cursor:pointer;">🔊</button> "Ella ______ mi hija."</p>
+                    <div class="options-grid">
+                        <button class="option-btn" onclick="checkAnswer(this, true)">es</button>
+                        <button class="option-btn" onclick="checkAnswer(this, false)">son</button>
+                    </div>
+                </div>
+                <div class="question-block" style="margin-top: 1rem;">
+                    <p><button onclick="speak('Nosotros somos ingleses', 'es-ES')"
+                            style="background:none; border:none; cursor:pointer;">🔊</button> "Nosotros ______
+                        ingleses."</p>
+                    <div class="options-grid">
+                        <button class="option-btn" onclick="checkAnswer(this, false)">eres</button>
+                        <button class="option-btn" onclick="checkAnswer(this, true)">somos</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- EXPLANATION ESTAR -->
+            <div class="explanation" style="margin-top: 3rem; border-left-color: var(--accent-color);">
+                <h3>2. Verbo ESTAR (To be - Temporary)</h3>
+                <p><strong>English:</strong> Use <strong>ESTAR</strong> for things that change: Location (where you are)
+                    and feelings/states (how you are).</p>
+                <table
+                    style="width: 100%; margin-top: 10px; border-collapse: collapse; background: white; border-radius: 8px; overflow: hidden;">
+                    <tr style="background: var(--accent-color); color: white;">
+                        <th style="padding: 10px;">Persona</th>
+                        <th style="padding: 10px;">ESTAR</th>
+                        <th style="padding: 10px;">Audio</th>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border-bottom: 1px solid #eee;">Yo (I)</td>
+                        <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold;">estoy</td>
+                        <td style="padding: 10px; border-bottom: 1px solid #eee;"><button
+                                onclick="speak('Yo estoy', 'es-ES')">🔊</button></td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border-bottom: 1px solid #eee;">Tú (You)</td>
+                        <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold;">estás</td>
+                        <td style="padding: 10px; border-bottom: 1px solid #eee;"><button
+                                onclick="speak('Tú estás', 'es-ES')">🔊</button></td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border-bottom: 1px solid #eee;">Él/Ella (He/She)</td>
+                        <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold;">está</td>
+                        <td style="padding: 10px; border-bottom: 1px solid #eee;"><button
+                                onclick="speak('Él está', 'es-ES')">🔊</button></td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border-bottom: 1px solid #eee;">Nosotros (We)</td>
+                        <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold;">estamos</td>
+                        <td style="padding: 10px; border-bottom: 1px solid #eee;"><button
+                                onclick="speak('Nosotros estamos', 'es-ES')">🔊</button></td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border-bottom: 1px solid #eee;">Vosotros (You all)</td>
+                        <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold;">estáis</td>
+                        <td style="padding: 10px; border-bottom: 1px solid #eee;"><button
+                                onclick="speak('Vosotros estáis', 'es-ES')">🔊</button></td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border-bottom: 1px solid #eee;">Ellos/Ellas (They)</td>
+                        <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold;">están</td>
+                        <td style="padding: 10px; border-bottom: 1px solid #eee;"><button
+                                onclick="speak('Ellos están', 'es-ES')">🔊</button></td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- EXERCISE ESTAR -->
+            <div class="exercise-container">
+                <h4>Practica ESTAR</h4>
+                <div class="question-block">
+                    <p><button onclick="speak('Yo estoy en el jardín', 'es-ES')"
+                            style="background:none; border:none; cursor:pointer;">🔊</button> "Yo ______ en el jardín
+                        (garden)."</p>
+                    <div class="options-grid">
+                        <button class="option-btn" onclick="checkAnswer(this, true)">estoy</button>
+                        <button class="option-btn" onclick="checkAnswer(this, false)">estás</button>
+                    </div>
+                </div>
+                <div class="question-block" style="margin-top: 1rem;">
+                    <p><button onclick="speak('Ellos están felices', 'es-ES')"
+                            style="background:none; border:none; cursor:pointer;">🔊</button> "Ellos ______ felices
+                        (happy)."</p>
+                    <div class="options-grid">
+                        <button class="option-btn" onclick="checkAnswer(this, false)">estamos</button>
+                        <button class="option-btn" onclick="checkAnswer(this, true)">están</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MIXED EXERCISE -->
+            <div class="exercise-container"
+                style="background: #fff5f5; padding: 1.5rem; border-radius: 12px; margin-top: 3rem;">
+                <h3>Reto Final: ¿Ser o Estar?</h3>
+                <div class="question-block">
+                    <p><button onclick="speak('Hoy es lunes', 'es-ES')"
+                            style="background:none; border:none; cursor:pointer;">🔊</button> "Hoy ______ lunes."
+                        <small>(Today is Monday - Date/Time uses SER)</small></p>
+                    <div class="options-grid">
+                        <button class="option-btn" onclick="checkAnswer(this, true)">es</button>
+                        <button class="option-btn" onclick="checkAnswer(this, false)">está</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- LESSON 6: READING COMPREHENSION -->
+        <div id="lesson6" class="lesson-card">
+            <button onclick="goToMenu()"
+                style="border: none; background: none; color: var(--secondary-accent); cursor: pointer; margin-bottom: 1rem; font-weight: 600;">←
+                Volver al menú</button>
+            <h2>Lectura: El Día de los Muertos <button
+                    onclick="speak('El Día de los Muertos. El Día de los Muertos se celebra en México el dos de noviembre. Es un día de fiesta en el que se recuerda a los miembros de la familia que han muerto. Muchas veces, las personas llevan disfraces al igual que los niños en Estados Unidos en Halloween. Para celebrar el Día de los Muertos, los mexicanos hacen altares con objetos personales, dulces, frutas, flores, fotos, para ofrecerlos a los parientes o familiares muertos.', 'es-ES')"
+                    style="background:none; border:none; cursor:pointer; font-size: 1.5rem; vertical-align: middle;">🔊
+                    Escuchar texto</button></h2>
+
+            <div class="reading-text">
+                "El Día de los Muertos se celebra en México el <strong>dos de noviembre</strong>. Es un día de fiesta en
+                el que se recuerda a los miembros de la familia que han muerto. Muchas veces, las personas llevan
+                disfraces al igual que los niños en Estados Unidos en Halloween. Para celebrar el Día de los Muertos,
+                los mexicanos hacen altares con objetos personales, dulces, frutas, flores, fotos..., para ofrecerlos a
+                los parientes o familiares muertos."
+            </div>
+
+            <div class="explanation" style="background: #fdfbf7; border-left-color: var(--accent-color);">
+                <p><strong>English Translation:</strong></p>
+                <p style="font-style: italic; color: #555;">"The Day of the Dead is celebrated in Mexico on November
+                    2nd. It is a holiday where family members who have died are remembered. Often, people wear costumes
+                    just like children in the United States on Halloween. To celebrate the Day of the Dead, Mexicans
+                    make altars with personal objects, sweets, fruits, flowers, photos..., to offer them to their
+                    deceased relatives or family members."</p>
+            </div>
+
+            <div class="questions-container">
+                <div class="question-block">
+                    <p><button onclick="speak('¿Cuándo se celebra el Día de los Muertos?', 'es-ES')"
+                            style="background:none; border:none; cursor:pointer;">🔊</button> a) ¿Cuándo se celebra el
+                        Día de los Muertos? <br><small>(When is the Day of the Dead celebrated?)</small></p>
+                    <div class="options-grid">
+                        <button class="option-btn" onclick="checkAnswer(this, true)">2 de Noviembre</button>
+                        <button class="option-btn" onclick="checkAnswer(this, false)">31 de Octubre</button>
+                    </div>
+                </div>
+                <div class="question-block">
+                    <p><button onclick="speak('¿Dónde se celebra?', 'es-ES')"
+                            style="background:none; border:none; cursor:pointer;">🔊</button> b) ¿Dónde se celebra?
+                        <br><small>(Where is it celebrated?)</small></p>
+                    <div class="options-grid">
+                        <button class="option-btn" onclick="checkAnswer(this, false)">Inglaterra</button>
+                        <button class="option-btn" onclick="checkAnswer(this, true)">México</button>
+                    </div>
+                </div>
+                <div class="question-block">
+                    <p><button onclick="speak('¿Por qué se celebra?', 'es-ES')"
+                            style="background:none; border:none; cursor:pointer;">🔊</button> c) ¿Por qué se celebra?
+                        <br><small>(Why is it celebrated?)</small></p>
+                    <div class="options-grid">
+                        <button class="option-btn" onclick="checkAnswer(this, true)">Para recordar a la familia (To
+                            remember family)</button>
+                        <button class="option-btn" onclick="checkAnswer(this, false)">Para comer dulces (To eat
+                            sweets)</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
