@@ -35,6 +35,7 @@ function goToMenu() {
 let draggables = document.querySelectorAll('.draggable');
 let dropZones = document.querySelectorAll('.drop-item');
 
+// Mouse Drag Events
 draggables.forEach(draggable => {
     draggable.addEventListener('dragstart', () => {
         draggable.classList.add('dragging');
@@ -42,6 +43,43 @@ draggables.forEach(draggable => {
 
     draggable.addEventListener('dragend', () => {
         draggable.classList.remove('dragging');
+    });
+
+    // Touch Support
+    draggable.addEventListener('touchstart', (e) => {
+        draggable.classList.add('dragging');
+        // Prevent default to avoid scrolling while dragging
+        // e.preventDefault(); 
+    }, { passive: true });
+
+    draggable.addEventListener('touchmove', (e) => {
+        const touch = e.touches[0];
+        const draggingElement = document.querySelector('.dragging');
+        if (!draggingElement) return;
+
+        // Visual feedback: move the element or just highlight zones
+        // For simplicity and stability on various mobiles, we'll track the target zone
+        const target = document.elementFromPoint(touch.clientX, touch.clientY);
+        const zone = target?.closest('.drop-item');
+        
+        dropZones.forEach(z => z.classList.remove('hover'));
+        if (zone) zone.classList.add('hover');
+        
+        e.preventDefault(); // Stop scrolling
+    }, { passive: false });
+
+    draggable.addEventListener('touchend', (e) => {
+        const touch = e.changedTouches[0];
+        draggable.classList.remove('dragging');
+        
+        const target = document.elementFromPoint(touch.clientX, touch.clientY);
+        const zone = target?.closest('.drop-item');
+        
+        if (zone) {
+            handleDrop(draggable, zone);
+        }
+        
+        dropZones.forEach(z => z.classList.remove('hover'));
     });
 });
 
@@ -57,28 +95,35 @@ dropZones.forEach(zone => {
 
     zone.addEventListener('drop', (e) => {
         e.preventDefault();
-        zone.classList.remove('hover');
-        
-        const draggableId = document.querySelector('.dragging').id;
-        const matchId = zone.getAttribute('data-match');
-
-        if (draggableId === matchId) {
-            const draggable = document.getElementById(draggableId);
-            zone.appendChild(draggable);
-            draggable.classList.add('placed');
-            draggable.setAttribute('draggable', 'false');
-            
-            // Success sound or visual cue
-            checkProgress(zone.parentElement);
-        } else {
-            // Shake or visual cue for wrong drop
-            zone.style.borderColor = '#c0392b';
-            setTimeout(() => {
-                zone.style.borderColor = '#ccc';
-            }, 500);
+        const draggingElement = document.querySelector('.dragging');
+        if (draggingElement) {
+            handleDrop(draggingElement, zone);
         }
     });
 });
+
+function handleDrop(draggable, zone) {
+    zone.classList.remove('hover');
+    const draggableId = draggable.id;
+    const matchId = zone.getAttribute('data-match');
+
+    if (draggableId === matchId) {
+        zone.appendChild(draggable);
+        draggable.classList.add('placed');
+        draggable.setAttribute('draggable', 'false');
+        
+        // Success feedback
+        checkProgress(zone.parentElement);
+    } else {
+        // Error visual feedback
+        zone.style.borderColor = '#c0392b';
+        zone.style.backgroundColor = '#fff5f5';
+        setTimeout(() => {
+            zone.style.borderColor = '#ccc';
+            zone.style.backgroundColor = '';
+        }, 500);
+    }
+}
 
 function checkProgress(container) {
     const total = container.querySelectorAll('.drop-item').length;
