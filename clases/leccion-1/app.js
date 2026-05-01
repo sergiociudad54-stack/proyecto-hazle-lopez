@@ -48,8 +48,6 @@ draggables.forEach(draggable => {
     // Touch Support
     draggable.addEventListener('touchstart', (e) => {
         draggable.classList.add('dragging');
-        // Prevent default to avoid scrolling while dragging
-        // e.preventDefault(); 
     }, { passive: true });
 
     draggable.addEventListener('touchmove', (e) => {
@@ -57,22 +55,29 @@ draggables.forEach(draggable => {
         const draggingElement = document.querySelector('.dragging');
         if (!draggingElement) return;
 
-        // Visual feedback: move the element or just highlight zones
-        // For simplicity and stability on various mobiles, we'll track the target zone
+        // Visual feedback: track the target zone
+        // We set pointer-events to none so elementFromPoint sees what's UNDER the finger
+        draggingElement.style.pointerEvents = 'none';
         const target = document.elementFromPoint(touch.clientX, touch.clientY);
+        draggingElement.style.pointerEvents = 'auto';
+        
         const zone = target?.closest('.drop-item');
         
         dropZones.forEach(z => z.classList.remove('hover'));
         if (zone) zone.classList.add('hover');
         
-        e.preventDefault(); // Stop scrolling
+        if (e.cancelable) e.preventDefault(); // Stop scrolling
     }, { passive: false });
 
     draggable.addEventListener('touchend', (e) => {
         const touch = e.changedTouches[0];
         draggable.classList.remove('dragging');
         
+        // Final check for the zone
+        draggable.style.pointerEvents = 'none';
         const target = document.elementFromPoint(touch.clientX, touch.clientY);
+        draggable.style.pointerEvents = 'auto';
+        
         const zone = target?.closest('.drop-item');
         
         if (zone) {
@@ -111,6 +116,7 @@ function handleDrop(draggable, zone) {
         zone.appendChild(draggable);
         draggable.classList.add('placed');
         draggable.setAttribute('draggable', 'false');
+        draggable.style.pointerEvents = 'auto'; // Ensure it's clickable for audio if needed
         
         // Success feedback
         checkProgress(zone.parentElement);
