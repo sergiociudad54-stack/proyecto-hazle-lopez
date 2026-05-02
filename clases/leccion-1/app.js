@@ -201,6 +201,9 @@ if ('speechSynthesis' in window) {
 function speak(text, lang = 'es-ES', rate = 0.9, pitch = 1.0) {
     if (!('speechSynthesis' in window)) return;
 
+    // Detener cualquier audio previo antes de empezar uno nuevo (Evita el "loop" y colas infinitas)
+    window.speechSynthesis.cancel();
+
     speakInternal(text, lang, rate, pitch);
 }
 
