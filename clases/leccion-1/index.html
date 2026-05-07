@@ -444,8 +444,6 @@
                             style="background:none; border:none; cursor:pointer;">🔊</button></li>
                     <li>Jueves (Thursday) <button onclick="speak('Jueves', 'es-ES')"
                             style="background:none; border:none; cursor:pointer;">🔊</button></li>
-                </ul>
-                <ul class="vocab-list">
                     <li>Viernes (Friday) <button onclick="speak('Viernes', 'es-ES')"
                             style="background:none; border:none; cursor:pointer;">🔊</button></li>
                     <li>Sábado (Saturday) <button onclick="speak('Sábado', 'es-ES')"
@@ -454,6 +452,397 @@
                             style="background:none; border:none; cursor:pointer;">🔊</button></li>
                 </ul>
             </div>
+
+            <!-- NUEVO EJERCICIO DE ESCRITURA -->
+            <div class="exercise-container writing-exercise"
+                style="margin-top: 1.5rem; border-top: 1px dashed #ddd; padding-top: 1.5rem;">
+                <h3 style="color: var(--secondary-accent); font-size: 1rem; margin-bottom: 0.5rem;">✍️ ¡Ahora escribe! /
+                    Now write!</h3>
+                <p style="font-size: 0.85rem; color: #666; margin-bottom: 1rem;">Escribe el nombre del día en español
+                    (No te preocupes por las mayúsculas):</p>
+
+                <div class="writing-grid"
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px;">
+                    <div class="writing-item"
+                        style="background: #f8f9fa; padding: 8px; border-radius: 10px; border: 1px solid #eee;">
+                        <span style="font-size: 0.75rem; color: #888; display: block;">Wednesday</span>
+                        <input type="text" class="day-input" data-answer="miércoles" placeholder="..."
+                            style="width: 100%; border: 1px solid #ccc; border-radius: 5px; padding: 4px 8px; font-size: 0.9rem; margin-top: 4px;">
+                    </div>
+                    <div class="writing-item"
+                        style="background: #f8f9fa; padding: 8px; border-radius: 10px; border: 1px solid #eee;">
+                        <span style="font-size: 0.75rem; color: #888; display: block;">Friday</span>
+                        <input type="text" class="day-input" data-answer="viernes" placeholder="..."
+                            style="width: 100%; border: 1px solid #ccc; border-radius: 5px; padding: 4px 8px; font-size: 0.9rem; margin-top: 4px;">
+                    </div>
+                    <div class="writing-item"
+                        style="background: #f8f9fa; padding: 8px; border-radius: 10px; border: 1px solid #eee;">
+                        <span style="font-size: 0.75rem; color: #888; display: block;">Monday</span>
+                        <input type="text" class="day-input" data-answer="lunes" placeholder="..."
+                            style="width: 100%; border: 1px solid #ccc; border-radius: 5px; padding: 4px 8px; font-size: 0.9rem; margin-top: 4px;">
+                    </div>
+                    <div class="writing-item"
+                        style="background: #f8f9fa; padding: 8px; border-radius: 10px; border: 1px solid #eee;">
+                        <span style="font-size: 0.75rem; color: #888; display: block;">Sunday</span>
+                        <input type="text" class="day-input" data-answer="domingo" placeholder="..."
+                            style="width: 100%; border: 1px solid #ccc; border-radius: 5px; padding: 4px 8px; font-size: 0.9rem; margin-top: 4px;">
+                    </div>
+                    <div class="writing-item"
+                        style="background: #f8f9fa; padding: 8px; border-radius: 10px; border: 1px solid #eee;">
+                        <span style="font-size: 0.75rem; color: #888; display: block;">Tuesday</span>
+                        <input type="text" class="day-input" data-answer="martes" placeholder="..."
+                            style="width: 100%; border: 1px solid #ccc; border-radius: 5px; padding: 4px 8px; font-size: 0.9rem; margin-top: 4px;">
+                    </div>
+                    <div class="writing-item"
+                        style="background: #f8f9fa; padding: 8px; border-radius: 10px; border: 1px solid #eee;">
+                        <span style="font-size: 0.75rem; color: #888; display: block;">Saturday</span>
+                        <input type="text" class="day-input" data-answer="sábado" placeholder="..."
+                            style="width: 100%; border: 1px solid #ccc; border-radius: 5px; padding: 4px 8px; font-size: 0.9rem; margin-top: 4px;">
+                    </div>
+                    <div class="writing-item"
+                        style="background: #f8f9fa; padding: 8px; border-radius: 10px; border: 1px solid #eee;">
+                        <span style="font-size: 0.75rem; color: #888; display: block;">Thursday</span>
+                        <input type="text" class="day-input" data-answer="jueves" placeholder="..."
+                            style="width: 100%; border: 1px solid #ccc; border-radius: 5px; padding: 4px 8px; font-size: 0.9rem; margin-top: 4px;">
+                    </div>
+                </div>
+
+                <div style="margin-top: 1.5rem; text-align: center;">
+                    <button class="nav-btn" onclick="checkDaysWriting()"
+                        style="background: var(--accent-color); color: white; border: none; padding: 8px 20px; border-radius: 20px; font-weight: 600; cursor: pointer; font-size: 0.9rem;">Comprobar
+                        respuestas</button>
+                    <p class="feedback" id="feedback-days-writing"
+                        style="margin-top: 10px; font-size: 0.9rem; font-weight: 600; min-height: 20px;"></p>
+                </div>
+            </div>
+
+            <!-- EJERCICIO DINÁMICO DE DÍAS DE LA SEMANA -->
+            <style>
+                .calendar-exercise-box {
+                    padding: 15px;
+                    background: #fff;
+                    border-radius: 12px;
+                    box-shadow: var(--shadow);
+                    border: 1px solid #eee;
+                    font-family: 'Inter', sans-serif;
+                    margin: 1rem 0;
+                    width: 100%;
+                    max-width: 800px;
+                    /* Ocupa más espacio en desktop */
+                }
+
+                .calendar-exercise-box h3 {
+                    margin: 0 0 8px 0;
+                    color: var(--secondary-accent);
+                    font-size: 1.1rem;
+                }
+
+                .calendar-exercise-box .sub {
+                    font-size: 0.85rem;
+                    margin: 0 0 12px 0;
+                    color: #666;
+                }
+
+                .calendar-exercise-box .challenges-list {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 8px;
+                    margin-bottom: 15px;
+                }
+
+                .calendar-exercise-box .calendar-row {
+                    display: flex;
+                    align-items: center;
+                    gap: 12px;
+                }
+
+                .calendar-exercise-box .row-number {
+                    font-weight: bold;
+                    color: var(--accent-color);
+                    width: 20px;
+                    font-size: 0.9rem;
+                    text-align: right;
+                }
+
+                .calendar-exercise-box .calendar-grid {
+                    display: grid;
+                    grid-template-columns: repeat(7, 1fr);
+                    gap: 5px;
+                    flex: 1;
+                    max-width: 650px;
+                    /* Anchura suficiente para nombres enteros */
+                    background: #f1f3f5;
+                    padding: 8px;
+                    border-radius: 8px;
+                }
+
+                .calendar-exercise-box .calendar-day-fixed,
+                .calendar-exercise-box .calendar-slot {
+                    height: 32px;
+                    /* Más alto para que quepa el texto */
+                    border-radius: 6px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 0.75rem;
+                    font-weight: 600;
+                    text-align: center;
+                }
+
+                .calendar-exercise-box .calendar-day-fixed {
+                    background: #fff;
+                    border: 1px solid #dee2e6;
+                    color: #495057;
+                }
+
+                .calendar-exercise-box .calendar-slot {
+                    background: #e7f5ff;
+                    border: 2px dashed #339af0;
+                    color: #1971c2;
+                    transition: all 0.2s;
+                    cursor: pointer;
+                }
+
+                .calendar-exercise-box .calendar-slot.drag-over {
+                    background: #d0ebff;
+                    border-style: solid;
+                    transform: scale(1.02);
+                }
+
+                .calendar-exercise-box .calendar-slot.filled {
+                    background: #ebfbee;
+                    border: 2px solid #40c057;
+                    color: #2b8a3e;
+                    font-weight: 800;
+                }
+
+                .calendar-exercise-box .calendar-slot.wrong {
+                    background: #fff5f5;
+                    border: 2px solid #fa5252;
+                    animation: shake 0.4s;
+                }
+
+                @keyframes shake {
+
+                    0%,
+                    100% {
+                        transform: translateX(0);
+                    }
+
+                    20%,
+                    60% {
+                        transform: translateX(-5px);
+                    }
+
+                    40%,
+                    80% {
+                        transform: translateX(5px);
+                    }
+                }
+
+                .calendar-exercise-box .draggables {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 10px;
+                    justify-content: center;
+                    margin-top: 15px;
+                    padding: 15px;
+                    background: #fdfbf7;
+                    border: 1px dashed #adb5bd;
+                    border-radius: 12px;
+                }
+
+                .calendar-exercise-box .draggable {
+                    padding: 6px 16px;
+                    font-size: 0.9rem;
+                    background: white;
+                    border-radius: 20px;
+                    border: 1px solid #ced4da;
+                    cursor: grab;
+                    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                    user-select: none;
+                    transition: 0.2s;
+                }
+
+                .calendar-exercise-box .draggable:hover {
+                    transform: translateY(-2px);
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                    border-color: var(--accent-color);
+                }
+
+                .calendar-exercise-box .draggable:active {
+                    cursor: grabbing;
+                }
+
+                .calendar-exercise-box .feedback {
+                    margin-top: 15px;
+                    font-size: 0.95rem;
+                    text-align: center;
+                    min-height: 28px;
+                    font-weight: 600;
+                    color: var(--secondary-accent);
+                }
+
+                .calendar-exercise-box .reset-btn {
+                    background: #f8f9fa;
+                    border: 1px solid #dee2e6;
+                    font-size: 0.85rem;
+                    padding: 8px 20px;
+                    border-radius: 25px;
+                    cursor: pointer;
+                    margin: 15px auto;
+                    display: block;
+                    font-weight: 600;
+                    transition: 0.2s;
+                }
+
+                .calendar-exercise-box .reset-btn:hover {
+                    background: #e9ecef;
+                    color: #fa5252;
+                    border-color: #fa5252;
+                }
+            </style>
+
+            <div class="calendar-exercise-box">
+                <h3><button onclick="speak('¿Qué día es hoy?', 'es-ES')"
+                        style="background:none; border:none; cursor:pointer; font-size:1.1rem; vertical-align: middle; margin-right: 5px;">🔊</button>
+                    ¿Qué día es hoy? / What day is it?</h3>
+                <div class="sub"><strong>English:</strong> Deduce the day in the <strong style="color:#339af0">blue
+                        box</strong>. Drag the correct day.</div>
+
+                <div class="challenges-list" id="challengesContainer"></div>
+
+                <div class="draggables" id="draggableContainer">
+                    <div class="draggable" draggable="true" data-day="lunes">Lunes</div>
+                    <div class="draggable" draggable="true" data-day="martes">Martes</div>
+                    <div class="draggable" draggable="true" data-day="miercoles">Miércoles</div>
+                    <div class="draggable" draggable="true" data-day="viernes">Viernes</div>
+                    <div class="draggable" data-day="domingo" draggable="true">Domingo</div>
+                </div>
+                <div class="feedback" id="feedbackMsg">Arrastra los días a su lugar.</div>
+                <button class="reset-btn" id="resetBtn">Reiniciar ejercicio</button>
+            </div>
+
+            <script>
+                (function () {
+                    const challenges = [
+                        { targetDay: "miercoles", fixedDays: { 0: "Lun" } },
+                        { targetDay: "viernes", fixedDays: { 1: "Mar" } },
+                        { targetDay: "lunes", fixedDays: { 5: "Sáb" } },
+                        { targetDay: "domingo", fixedDays: { 2: "Mié" } },
+                        { targetDay: "martes", fixedDays: { 4: "Vie" } }
+                    ];
+
+                    const dayNames = {
+                        "lunes": "Lunes", "martes": "Martes", "miercoles": "Miércoles",
+                        "viernes": "Viernes", "domingo": "Domingo"
+                    };
+
+                    let slotsData = challenges.map(ch => ({ filledDay: null, correctDay: ch.targetDay }));
+                    let slotsElements = [];
+
+                    function buildGrid() {
+                        const container = document.getElementById("challengesContainer");
+                        if (!container) return;
+                        container.innerHTML = "";
+                        slotsElements = [];
+                        const slotPositions = [2, 4, 0, 6, 1];
+
+                        challenges.forEach((ch, idx) => {
+                            const row = document.createElement("div");
+                            row.className = "calendar-row";
+                            const numberSpan = document.createElement("span");
+                            numberSpan.className = "row-number";
+                            numberSpan.textContent = `${idx + 1}.`;
+                            row.appendChild(numberSpan);
+
+                            const grid = document.createElement("div");
+                            grid.className = "calendar-grid";
+
+                            for (let col = 0; col < 7; col++) {
+                                let cell = document.createElement("div");
+                                if (ch.fixedDays && ch.fixedDays[col] !== undefined) {
+                                    cell.className = "calendar-day-fixed";
+                                    cell.textContent = ch.fixedDays[col];
+                                } else if (col === slotPositions[idx]) {
+                                    cell.className = "calendar-slot";
+                                    cell.setAttribute("data-slot-idx", idx);
+                                    cell.setAttribute("data-correct", ch.targetDay);
+
+                                    cell.addEventListener("dragover", (e) => { e.preventDefault(); cell.classList.add("drag-over"); });
+                                    cell.addEventListener("dragleave", () => { cell.classList.remove("drag-over"); });
+                                    cell.addEventListener("drop", handleDrop);
+                                    slotsElements.push(cell);
+                                } else {
+                                    cell.className = "calendar-day-fixed";
+                                    cell.style.background = "#fafafa";
+                                    cell.style.border = "1px solid #f1f3f5";
+                                }
+                                grid.appendChild(cell);
+                            }
+                            row.appendChild(grid);
+                            container.appendChild(row);
+                        });
+                    }
+
+                    function handleDrop(e) {
+                        e.preventDefault();
+                        this.classList.remove("drag-over");
+                        const draggedDay = e.dataTransfer.getData("text/plain");
+                        const slotIdx = parseInt(this.getAttribute("data-slot-idx"));
+                        const correctDay = this.getAttribute("data-correct");
+
+                        if (slotsData[slotIdx].filledDay !== null) return;
+
+                        if (draggedDay === correctDay) {
+                            slotsData[slotIdx].filledDay = draggedDay;
+                            this.textContent = dayNames[draggedDay];
+                            this.classList.add("filled");
+                            showFeedback("✅ ¡Correcto!", "success");
+                            checkAllFilled();
+                        } else {
+                            this.classList.add("wrong");
+                            showFeedback(`❌ "${dayNames[draggedDay]}" no va ahí`, "error");
+                            setTimeout(() => this.classList.remove("wrong"), 600);
+                        }
+                    }
+
+                    function showFeedback(msg, type) {
+                        const feedbackDiv = document.getElementById("feedbackMsg");
+                        if (!feedbackDiv) return;
+                        feedbackDiv.textContent = msg;
+                        feedbackDiv.style.color = type === "success" ? "#2b8a3e" : "#fa5252";
+                    }
+
+                    function checkAllFilled() {
+                        if (slotsData.every(slot => slot.filledDay !== null)) {
+                            showFeedback("🎉 ¡Excelente! Has completado todos los días correctamente. 🎉", "success");
+                        }
+                    }
+
+                    function resetGame() {
+                        slotsData.forEach(s => s.filledDay = null);
+                        slotsElements.forEach(cell => { cell.textContent = ""; cell.classList.remove("filled", "wrong"); });
+                        showFeedback("Arrastra los días a su lugar.", "#2c3e66");
+                    }
+
+                    function initDraggables() {
+                        document.querySelectorAll(".draggable").forEach(drag => {
+                            drag.setAttribute("draggable", "true"); // Asegurar que sea arrastrable
+                            drag.addEventListener("dragstart", (e) => {
+                                e.dataTransfer.setData("text/plain", drag.getAttribute("data-day"));
+                                drag.classList.add("dragging");
+                            });
+                            drag.addEventListener("dragend", () => drag.classList.remove("dragging"));
+                        });
+                    }
+
+                    buildGrid();
+                    initDraggables();
+                    const resetBtn = document.getElementById("resetBtn");
+                    if (resetBtn) resetBtn.addEventListener("click", resetGame);
+                })();
+            </script>
 
             <div class="exercise-container">
                 <h3>Preguntas / Questions</h3>
@@ -575,6 +964,113 @@
                     <div class="draggable" draggable="true" id="enero">Enero</div>
                 </div>
             </div>
+
+            <!-- EJERCICIO DE ESCRITURA: MESES (PARTE 1 - DESORDENADOS) -->
+            <div class="exercise-container writing-exercise"
+                style="margin-top: 1.5rem; border-top: 1px dashed #ddd; padding-top: 1.5rem;">
+                <h3 style="color: var(--secondary-accent); font-size: 1rem; margin-bottom: 0.5rem;"><button
+                        onclick="speak('¡Escribe los meses!', 'es-ES')"
+                        style="background:none; border:none; cursor:pointer; font-size:1rem; vertical-align: middle;">🔊</button>
+                    ✍️ ¡Escribe los meses! (Parte 1)</h3>
+                <p style="font-size: 0.8rem; color: #666; margin-bottom: 1rem;">Traduce estos meses al español:</p>
+
+                <div class="writing-grid"
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px;">
+                    <div class="writing-item"
+                        style="background: #fdfdfd; padding: 8px; border-radius: 10px; border: 1px solid #eee;">
+                        <span style="font-size: 0.75rem; color: #888; display: block;">August</span>
+                        <input type="text" class="month-input" data-answer="agosto" placeholder="..."
+                            style="width: 100%; border: 1px solid #ccc; border-radius: 5px; padding: 4px 8px; font-size: 0.9rem; margin-top: 4px;">
+                    </div>
+                    <div class="writing-item"
+                        style="background: #fdfdfd; padding: 8px; border-radius: 10px; border: 1px solid #eee;">
+                        <span style="font-size: 0.75rem; color: #888; display: block;">January</span>
+                        <input type="text" class="month-input" data-answer="enero" placeholder="..."
+                            style="width: 100%; border: 1px solid #ccc; border-radius: 5px; padding: 4px 8px; font-size: 0.9rem; margin-top: 4px;">
+                    </div>
+                    <div class="writing-item"
+                        style="background: #fdfdfd; padding: 8px; border-radius: 10px; border: 1px solid #eee;">
+                        <span style="font-size: 0.75rem; color: #888; display: block;">May</span>
+                        <input type="text" class="month-input" data-answer="mayo" placeholder="..."
+                            style="width: 100%; border: 1px solid #ccc; border-radius: 5px; padding: 4px 8px; font-size: 0.9rem; margin-top: 4px;">
+                    </div>
+                    <div class="writing-item"
+                        style="background: #fdfdfd; padding: 8px; border-radius: 10px; border: 1px solid #eee;">
+                        <span style="font-size: 0.75rem; color: #888; display: block;">September</span>
+                        <input type="text" class="month-input" data-answer="septiembre" placeholder="..."
+                            style="width: 100%; border: 1px solid #ccc; border-radius: 5px; padding: 4px 8px; font-size: 0.9rem; margin-top: 4px;">
+                    </div>
+                    <div class="writing-item"
+                        style="background: #fdfdfd; padding: 8px; border-radius: 10px; border: 1px solid #eee;">
+                        <span style="font-size: 0.75rem; color: #888; display: block;">March</span>
+                        <input type="text" class="month-input" data-answer="marzo" placeholder="..."
+                            style="width: 100%; border: 1px solid #ccc; border-radius: 5px; padding: 4px 8px; font-size: 0.9rem; margin-top: 4px;">
+                    </div>
+                    <div class="writing-item"
+                        style="background: #fdfdfd; padding: 8px; border-radius: 10px; border: 1px solid #eee;">
+                        <span style="font-size: 0.75rem; color: #888; display: block;">December</span>
+                        <input type="text" class="month-input" data-answer="diciembre" placeholder="..."
+                            style="width: 100%; border: 1px solid #ccc; border-radius: 5px; padding: 4px 8px; font-size: 0.9rem; margin-top: 4px;">
+                    </div>
+                </div>
+            </div>
+
+            <!-- EJERCICIO DE ESCRITURA: MESES (PARTE 2 - DESORDENADOS) -->
+            <div class="exercise-container writing-exercise"
+                style="margin-top: 1.5rem; border-top: 1px dashed #ddd; padding-top: 1.5rem;">
+                <h3 style="color: var(--secondary-accent); font-size: 1rem; margin-bottom: 0.5rem;"><button
+                        onclick="speak('¡Más meses!', 'es-ES')"
+                        style="background:none; border:none; cursor:pointer; font-size:1rem; vertical-align: middle;">🔊</button>
+                    ✍️ ¡Más meses! (Parte 2)</h3>
+                <p style="font-size: 0.8rem; color: #666; margin-bottom: 1rem;">Traduce los meses restantes:</p>
+
+                <div class="writing-grid"
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px;">
+                    <div class="writing-item"
+                        style="background: #fdfdfd; padding: 8px; border-radius: 10px; border: 1px solid #eee;">
+                        <span style="font-size: 0.75rem; color: #888; display: block;">February</span>
+                        <input type="text" class="month-input" data-answer="febrero" placeholder="..."
+                            style="width: 100%; border: 1px solid #ccc; border-radius: 5px; padding: 4px 8px; font-size: 0.9rem; margin-top: 4px;">
+                    </div>
+                    <div class="writing-item"
+                        style="background: #fdfdfd; padding: 8px; border-radius: 10px; border: 1px solid #eee;">
+                        <span style="font-size: 0.75rem; color: #888; display: block;">April</span>
+                        <input type="text" class="month-input" data-answer="abril" placeholder="..."
+                            style="width: 100%; border: 1px solid #ccc; border-radius: 5px; padding: 4px 8px; font-size: 0.9rem; margin-top: 4px;">
+                    </div>
+                    <div class="writing-item"
+                        style="background: #fdfdfd; padding: 8px; border-radius: 10px; border: 1px solid #eee;">
+                        <span style="font-size: 0.75rem; color: #888; display: block;">June</span>
+                        <input type="text" class="month-input" data-answer="junio" placeholder="..."
+                            style="width: 100%; border: 1px solid #ccc; border-radius: 5px; padding: 4px 8px; font-size: 0.9rem; margin-top: 4px;">
+                    </div>
+                    <div class="writing-item"
+                        style="background: #fdfdfd; padding: 8px; border-radius: 10px; border: 1px solid #eee;">
+                        <span style="font-size: 0.75rem; color: #888; display: block;">July</span>
+                        <input type="text" class="month-input" data-answer="julio" placeholder="..."
+                            style="width: 100%; border: 1px solid #ccc; border-radius: 5px; padding: 4px 8px; font-size: 0.9rem; margin-top: 4px;">
+                    </div>
+                    <div class="writing-item"
+                        style="background: #fdfdfd; padding: 8px; border-radius: 10px; border: 1px solid #eee;">
+                        <span style="font-size: 0.75rem; color: #888; display: block;">October</span>
+                        <input type="text" class="month-input" data-answer="octubre" placeholder="..."
+                            style="width: 100%; border: 1px solid #ccc; border-radius: 5px; padding: 4px 8px; font-size: 0.9rem; margin-top: 4px;">
+                    </div>
+                    <div class="writing-item"
+                        style="background: #fdfdfd; padding: 8px; border-radius: 10px; border: 1px solid #eee;">
+                        <span style="font-size: 0.75rem; color: #888; display: block;">November</span>
+                        <input type="text" class="month-input" data-answer="noviembre" placeholder="..."
+                            style="width: 100%; border: 1px solid #ccc; border-radius: 5px; padding: 4px 8px; font-size: 0.9rem; margin-top: 4px;">
+                    </div>
+                </div>
+
+                <div style="margin-top: 1.5rem; text-align: center;">
+                    <button class="nav-btn" onclick="checkMonthsWriting()"
+                        style="background: var(--accent-color); color: white; border: none; padding: 8px 20px; border-radius: 20px; font-weight: 600; cursor: pointer; font-size: 0.9rem;">Comprobar todos los meses</button>
+                    <p class="feedback" id="feedback-months-writing"
+                        style="margin-top: 10px; font-size: 0.9rem; font-weight: 600; min-height: 20px;"></p>
+                </div>
+            </div>
         </div>
 
         <!-- LESSON 5: SER / ESTAR -->
@@ -598,37 +1094,43 @@
                     </tr>
                     <tr>
                         <td style="padding: 10px; border-bottom: 1px solid #eee;">Yo (I)</td>
-                        <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold;">soy <small>(I am)</small></td>
+                        <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold;">soy <small>(I
+                                am)</small></td>
                         <td style="padding: 10px; border-bottom: 1px solid #eee;"><button
                                 onclick="speak('Yo soy', 'es-ES')">🔊</button></td>
                     </tr>
                     <tr>
                         <td style="padding: 10px; border-bottom: 1px solid #eee;">Tú (You)</td>
-                        <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold;">eres <small>(you are)</small></td>
+                        <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold;">eres <small>(you
+                                are)</small></td>
                         <td style="padding: 10px; border-bottom: 1px solid #eee;"><button
                                 onclick="speak('Tú eres', 'es-ES')">🔊</button></td>
                     </tr>
                     <tr>
                         <td style="padding: 10px; border-bottom: 1px solid #eee;">Él/Ella (He/She)</td>
-                        <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold;">es <small>(he/she is)</small></td>
+                        <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold;">es <small>(he/she
+                                is)</small></td>
                         <td style="padding: 10px; border-bottom: 1px solid #eee;"><button
                                 onclick="speak('Él es', 'es-ES')">🔊</button></td>
                     </tr>
                     <tr>
                         <td style="padding: 10px; border-bottom: 1px solid #eee;">Nosotros (We)</td>
-                        <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold;">somos <small>(we are)</small></td>
+                        <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold;">somos <small>(we
+                                are)</small></td>
                         <td style="padding: 10px; border-bottom: 1px solid #eee;"><button
                                 onclick="speak('Nosotros somos', 'es-ES')">🔊</button></td>
                     </tr>
                     <tr>
                         <td style="padding: 10px; border-bottom: 1px solid #eee;">Vosotros (You all)</td>
-                        <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold;">sois <small>(you all are)</small></td>
+                        <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold;">sois <small>(you
+                                all are)</small></td>
                         <td style="padding: 10px; border-bottom: 1px solid #eee;"><button
                                 onclick="speak('Vosotros sois', 'es-ES')">🔊</button></td>
                     </tr>
                     <tr>
                         <td style="padding: 10px; border-bottom: 1px solid #eee;">Ellos/Ellas (They)</td>
-                        <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold;">son <small>(they are)</small></td>
+                        <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold;">son <small>(they
+                                are)</small></td>
                         <td style="padding: 10px; border-bottom: 1px solid #eee;"><button
                                 onclick="speak('Ellos son', 'es-ES')">🔊</button></td>
                     </tr>
@@ -671,37 +1173,43 @@
                     </tr>
                     <tr>
                         <td style="padding: 10px; border-bottom: 1px solid #eee;">Yo (I)</td>
-                        <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold;">estoy <small>(I am)</small></td>
+                        <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold;">estoy <small>(I
+                                am)</small></td>
                         <td style="padding: 10px; border-bottom: 1px solid #eee;"><button
                                 onclick="speak('Yo estoy', 'es-ES')">🔊</button></td>
                     </tr>
                     <tr>
                         <td style="padding: 10px; border-bottom: 1px solid #eee;">Tú (You)</td>
-                        <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold;">estás <small>(you are)</small></td>
+                        <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold;">estás <small>(you
+                                are)</small></td>
                         <td style="padding: 10px; border-bottom: 1px solid #eee;"><button
                                 onclick="speak('Tú estás', 'es-ES')">🔊</button></td>
                     </tr>
                     <tr>
                         <td style="padding: 10px; border-bottom: 1px solid #eee;">Él/Ella (He/She)</td>
-                        <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold;">está <small>(he/she is)</small></td>
+                        <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold;">está <small>(he/she
+                                is)</small></td>
                         <td style="padding: 10px; border-bottom: 1px solid #eee;"><button
                                 onclick="speak('Él está', 'es-ES')">🔊</button></td>
                     </tr>
                     <tr>
                         <td style="padding: 10px; border-bottom: 1px solid #eee;">Nosotros (We)</td>
-                        <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold;">estamos <small>(we are)</small></td>
+                        <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold;">estamos <small>(we
+                                are)</small></td>
                         <td style="padding: 10px; border-bottom: 1px solid #eee;"><button
                                 onclick="speak('Nosotros estamos', 'es-ES')">🔊</button></td>
                     </tr>
                     <tr>
                         <td style="padding: 10px; border-bottom: 1px solid #eee;">Vosotros (You all)</td>
-                        <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold;">estáis <small>(you all are)</small></td>
+                        <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold;">estáis <small>(you
+                                all are)</small></td>
                         <td style="padding: 10px; border-bottom: 1px solid #eee;"><button
                                 onclick="speak('Vosotros estáis', 'es-ES')">🔊</button></td>
                     </tr>
                     <tr>
                         <td style="padding: 10px; border-bottom: 1px solid #eee;">Ellos/Ellas (They)</td>
-                        <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold;">están <small>(they are)</small></td>
+                        <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold;">están <small>(they
+                                are)</small></td>
                         <td style="padding: 10px; border-bottom: 1px solid #eee;"><button
                                 onclick="speak('Ellos están', 'es-ES')">🔊</button></td>
                     </tr>
@@ -738,7 +1246,8 @@
                 <div class="question-block">
                     <p><button onclick="speak('Hoy es lunes', 'es-ES')"
                             style="background:none; border:none; cursor:pointer;">🔊</button> "Hoy ______ lunes."
-                        <small>(Today is Monday - Date/Time uses SER)</small></p>
+                        <small>(Today is Monday - Date/Time uses SER)</small>
+                    </p>
                     <div class="options-grid">
                         <button class="option-btn" onclick="checkAnswer(this, true)">es</button>
                         <button class="option-btn" onclick="checkAnswer(this, false)">está</button>
@@ -787,7 +1296,8 @@
                 <div class="question-block">
                     <p><button onclick="speak('¿Dónde se celebra?', 'es-ES')"
                             style="background:none; border:none; cursor:pointer;">🔊</button> b) ¿Dónde se celebra?
-                        <br><small>(Where is it celebrated?)</small></p>
+                        <br><small>(Where is it celebrated?)</small>
+                    </p>
                     <div class="options-grid">
                         <button class="option-btn" onclick="checkAnswer(this, false)">Inglaterra</button>
                         <button class="option-btn" onclick="checkAnswer(this, true)">México</button>
@@ -796,7 +1306,8 @@
                 <div class="question-block">
                     <p><button onclick="speak('¿Por qué se celebra?', 'es-ES')"
                             style="background:none; border:none; cursor:pointer;">🔊</button> c) ¿Por qué se celebra?
-                        <br><small>(Why is it celebrated?)</small></p>
+                        <br><small>(Why is it celebrated?)</small>
+                    </p>
                     <div class="options-grid">
                         <button class="option-btn" onclick="checkAnswer(this, true)">Para recordar a la familia (To
                             remember family)</button>

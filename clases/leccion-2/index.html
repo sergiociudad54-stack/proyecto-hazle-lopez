@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clase de Español: Verbo Llamarse</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Great+Vibes&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <header>
+            <a href="../index.html" class="back-link">← Volver a mis lecciones</a>
+            <h1>Español con Hazle</h1>
+            <p class="subtitle">Lección 2: Comunicación Básica / Lesson 2: Basic Communication</p>
+        </header>
+
+        <!-- MENU DE LA LECCIÓN -->
+        <div class="course-menu" id="course-menu">
+            <div class="menu-card" onclick="showLesson(1)">
+                <div class="menu-icon">🗣️</div>
+                <h3>El Verbo Llamarse</h3>
+                <p>Learn to introduce yourself.</p>
+            </div>
+            <div class="menu-card" onclick="showLesson(2)">
+                <div class="menu-icon">🔢</div>
+                <h3>Los Números</h3>
+                <p>Numbers 10-100 and more.</p>
+            </div>
+            <div class="menu-card" onclick="showLesson(3)">
+                <div class="menu-icon">➕</div>
+                <h3>Aritmética</h3>
+                <p>Basic math in Spanish.</p>
+            </div>
+            <div class="menu-card" onclick="showLesson(4)">
+                <div class="menu-icon">🎂</div>
+                <h3>La Edad</h3>
+                <p>How to say your age.</p>
+            </div>
+            <div class="menu-card" onclick="showLesson(5)">
+                <div class="menu-icon">⏰</div>
+                <h3>La Hora</h3>
+                <p>Telling time with clocks.</p>
+            </div>
+        </div>
+
+        <!-- BARRA DE NAVEGACIÓN (Oculta al inicio) -->
+        <div class="lesson-nav" style="display: none; margin-bottom: 20px;">
+            <button onclick="goToMenu()" class="nav-btn">← Volver al menú</button>
+        </div>
+
+        <!-- SECCIÓN 1: EL VERBO LLAMARSE -->
+        <div class="lesson-card" id="lesson1" style="display: none;">
+            <h2><button onclick="speak('El Verbo Llamarse', 'es-ES')"
+                    style="background:none; border:none; cursor:pointer; font-size:1.1rem; vertical-align: middle;">🔊</button>
+                El Verbo Llamarse</h2>
+
+            <div class="explanation">
+                <p><strong>English:</strong> In Spanish, when we want to say "My name is...", we use the reflexive verb
+                    <strong>llamarse</strong> (literally: "to call oneself").</p>
+            </div>
+
+            <h3><button onclick="speak('Conjugación', 'es-ES')"
+                    style="background:none; border:none; cursor:pointer; font-size:1rem; vertical-align: middle;">🔊</button>
+                Conjugación / Conjugation</h3>
+            <table class="conjugation-table">
+                <thead>
+                    <tr>
+                        <th>Persona</th>
+                        <th>Llamarse</th>
+                        <th>Audio</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Yo (I)</td>
+                        <td><strong>me llamo</strong></td>
+                        <td><button class="speak-btn" onclick="speak('Yo me llamo', 'es-ES')">🔊</button></td>
+                    </tr>
+                    <tr>
+                        <td>Tú (You)</td>
+                        <td><strong>te llamas</strong></td>
+                        <td><button class="speak-btn" onclick="speak('Tú te llamas', 'es-ES')">🔊</button></td>
+                    </tr>
+                    <tr>
+                        <td>Él / Ella / Usted (He/She/You formal)</td>
+                        <td><strong>se llama</strong></td>
+                        <td><button class="speak-btn" onclick="speak('Él se llama', 'es-ES')">🔊</button></td>
+                    </tr>
+                    <tr>
+                        <td>Nosotros / Nosotras (We)</td>
+                        <td><strong>nos llamamos</strong></td>
+                        <td><button class="speak-btn" onclick="speak('Nosotros nos llamamos', 'es-ES')">🔊</button></td>
+                    </tr>
+                    <tr>
+                        <td>Vosotros / Vosotras (You all - Spain)</td>
+                        <td><strong>os llamáis</strong></td>
+                        <td><button class="speak-btn" onclick="speak('Vosotros os llamáis', 'es-ES')">🔊</button></td>
+                    </tr>
+                    <tr>
+                        <td>Ellos / Ellas / Ustedes (They / You all)</td>
+                        <td><strong>se llaman</strong></td>
+                        <td><button class="speak-btn" onclick="speak('Ellos se llaman', 'es-ES')">🔊</button></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3><button onclick="speak('Ejemplos', 'es-ES')"
+                    style="background:none; border:none; cursor:pointer; font-size:1rem; vertical-align: middle;">🔊</button>
+                Ejemplos / Examples</h3>
+            <div class="examples-container">
+                <div class="example-row">
+                    <button class="speak-btn" onclick="speak('¡Hola! Yo me llamo Carlos.', 'es-ES')">🔊</button>
+                    <div>
+                        <p style="font-weight: 600;">"¡Hola! Yo <strong>me llamo</strong> Carlos."</p>
+                        <p style="color: #666; font-size: 0.9rem;">"Hi! My name is Carlos."</p>
+                    </div>
+                </div>
+                <div class="example-row">
+                    <button class="speak-btn" onclick="speak('¿Cómo te llamas tú?', 'es-ES')">🔊</button>
+                    <div>
+                        <p style="font-weight: 600;">"¿Cómo <strong>te llamas</strong> tú?"</p>
+                        <p style="color: #666; font-size: 0.9rem;">"What is your name?"</p>
+                    </div>
+                </div>
+                <div class="example-row">
+                    <button class="speak-btn" onclick="speak('Ella se llama Lucía.', 'es-ES')">🔊</button>
+                    <div>
+                        <p style="font-weight: 600;">"Ella <strong>se llama</strong> Lucía."</p>
+                        <p style="color: #666; font-size: 0.9rem;">"Her name is Lucía."</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="exercise-container">
+                <h3><button onclick="speak('¡Practica! Parte uno', 'es-ES')"
+                        style="background:none; border:none; cursor:pointer; font-size:1rem; vertical-align: middle;">🔊</button>
+                    ¡Practica! (Parte 1)</h3>
+                <p>Ejercicios 1-5:</p>
+
+                <div class="drop-zones" id="exercise-drops-1">
+                    <div class="drop-item" data-match="me llamo"><span class="drop-label">1. Yo ________ Ana.</span>
+                    </div>
+                    <div class="drop-item" data-match="te llamas"><span class="drop-label">2. Tú ________ Pedro.</span>
+                    </div>
+                    <div class="drop-item" data-match="se llama"><span class="drop-label">3. Él ________ Juan.</span>
+                    </div>
+                    <div class="drop-item" data-match="se llama"><span class="drop-label">4. Ella ________ María.</span>
+                    </div>
+                    <div class="drop-item" data-match="nos llamamos"><span class="drop-label">5. Nosotros ________ Luis
+                            y Clara.</span></div>
+                </div>
+
+                <div class="draggables" id="exercise-drags-1">
+                    <div class="draggable" draggable="true" data-value="se llama">se llama</div>
+                    <div class="draggable" draggable="true" data-value="nos llamamos">nos llamamos</div>
+                    <div class="draggable" draggable="true" data-value="te llamas">te llamas</div>
+                    <div class="draggable" draggable="true" data-value="se llama">se llama</div>
+                    <div class="draggable" draggable="true" data-value="me llamo">me llamo</div>
+                </div>
+                <p class="feedback" id="feedback-msg-1"></p>
+            </div>
+
+            <div class="exercise-container">
+                <h3><button onclick="speak('¡Practica! Parte dos', 'es-ES')"
+                        style="background:none; border:none; cursor:pointer; font-size:1rem; vertical-align: middle;">🔊</button>
+                    ¡Practica! (Parte 2)</h3>
+                <p>Ejercicios 6-10 (Arrastrar):</p>
+
+                <div class="drop-zones" id="exercise-drops-2">
+                    <div class="drop-item" data-match="os llamáis"><span class="drop-label">6. Vosotros ________ Pablo y
+                            Lucía.</span></div>
+                    <div class="drop-item" data-match="se llaman"><span class="drop-label">7. Ellos ________ Javier y
+                            Marta.</span></div>
+                    <div class="drop-item" data-match="se llama"><span class="drop-label">8. Usted ________ Sr.
+                            Pérez.</span></div>
+                    <div class="drop-item" data-match="se llaman"><span class="drop-label">9. Ellas ________ Ana y
+                            Sol.</span></div>
+                    <div class="drop-item" data-match="te llamas"><span class="drop-label">10. ¿Cómo ________ tú?</span>
+                    </div>
+                </div>
+
+                <div class="draggables" id="exercise-drags-2">
+                    <div class="draggable" draggable="true" data-value="se llaman">se llaman</div>
+                    <div class="draggable" draggable="true" data-value="te llamas">te llamas</div>
+                    <div class="draggable" draggable="true" data-value="se llama">se llama</div>
+                    <div class="draggable" draggable="true" data-value="os llamáis">os llamáis</div>
+                    <div class="draggable" draggable="true" data-value="se llaman">se llaman</div>
+                </div>
+                <p class="feedback" id="feedback-msg-2"></p>
+            </div>
+
+            <!-- NEW WRITING EXERCISE -->
+            <div class="exercise-container writing-exercise">
+                <h3><button onclick="speak('¡Ahora escribe!', 'es-ES')"
+                        style="background:none; border:none; cursor:pointer; font-size:1rem; vertical-align: middle;">🔊</button>
+                    ¡Ahora escribe! / Now write!</h3>
+                <p>Escribe la forma correcta del verbo (No te preocupes por los acentos):</p>
+
+                <div class="writing-grid" style="display: grid; gap: 1rem; margin-top: 1rem;">
+                    <div class="writing-item" style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+                        <span>1. Yo</span>
+                        <input type="text" class="writing-input" data-answer="me llamo" placeholder="..."
+                            style="padding: 5px 10px; border-radius: 8px; border: 1px solid #ccc; width: 120px;">
+                        <span>Hazle.</span>
+                    </div>
+                    <div class="writing-item" style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+                        <span>2. ¿Cómo</span>
+                        <input type="text" class="writing-input" data-answer="te llamas" placeholder="..."
+                            style="padding: 5px 10px; border-radius: 8px; border: 1px solid #ccc; width: 120px;">
+                        <span>tú?</span>
+                    </div>
+                    <div class="writing-item" style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+                        <span>3. Nosotros</span>
+                        <input type="text" class="writing-input" data-answer="nos llamamos" placeholder="..."
+                            style="padding: 5px 10px; border-radius: 8px; border: 1px solid #ccc; width: 120px;">
+                        <span>los señores García.</span>
+                    </div>
+                    <div class="writing-item" style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+                        <span>4. ¿Cómo</span>
+                        <input type="text" class="writing-input" data-answer="os llamais" placeholder="..."
+                            style="padding: 5px 10px; border-radius: 8px; border: 1px solid #ccc; width: 120px;">
+                        <span>os llamáis vosotros?</span>
+                    </div>
+                    <div class="writing-item" style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+                        <span>5. Mis padres</span>
+                        <input type="text" class="writing-input" data-answer="se llaman" placeholder="..."
+                            style="padding: 5px 10px; border-radius: 8px; border: 1px solid #ccc; width: 120px;">
+                        <span>Roberto y Julia.</span>
+                    </div>
+                </div>
+
+                <div style="margin-top: 1.5rem; text-align: center;">
+                    <button class="nav-btn" onclick="checkWritingExercise()"
+                        style="background: var(--accent-color); color: white; border: none; padding: 10px 25px; border-radius: 20px; font-weight: 600; cursor: pointer;">Comprobar
+                        respuestas</button>
+                    <p class="feedback" id="feedback-writing"></p>
+                </div>
+            </div><!-- Cierre de exercise-container writing-exercise -->
+        </div><!-- Cierre de lesson1 -->
+
+        <!-- SECCIÓN 2: LOS NÚMEROS -->
+        <div class="lesson-card" id="lesson2" style="display: none;">
+            <div class="exercise-container">
+                <h3><button onclick="speak('Los Números del diez al cien', 'es-ES')"
+                        style="background:none; border:none; cursor:pointer; font-size:1.1rem; vertical-align: middle;">🔊</button>
+                    Numbers from 10 to 100</h3>
+                <div class="explanation">
+                    <p><strong>English:</strong> In this section, we will learn how to count from 10 to 100. Pay close attention to how numbers are formed!</p>
+                </div>
+
+                <!-- THE DECADES -->
+                <div class="explanation" style="background: #eef7ff; border-left-color: #3498db;">
+                    <h4 style="margin-bottom: 10px;">1. The Decades</h4>
+                    <p style="font-size: 0.9rem; margin-bottom: 10px;">First, let's learn the round numbers:</p>
+                    <div class="writing-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px;">
+                        <div class="vocab-item" style="background: white; padding: 10px; border-radius: 8px; border: 1px solid #eee; text-align: center;">
+                            <strong>10</strong> - Diez <button onclick="speak('Diez', 'es-ES')">🔊</button>
+                        </div>
+                        <div class="vocab-item" style="background: white; padding: 10px; border-radius: 8px; border: 1px solid #eee; text-align: center;">
+                            <strong>20</strong> - Veinte <button onclick="speak('Veinte', 'es-ES')">🔊</button>
+                        </div>
+                        <div class="vocab-item" style="background: white; padding: 10px; border-radius: 8px; border: 1px solid #eee; text-align: center;">
+                            <strong>30</strong> - Treinta <button onclick="speak('Treinta', 'es-ES')">🔊</button>
+                        </div>
+                        <div class="vocab-item" style="background: white; padding: 10px; border-radius: 8px; border: 1px solid #eee; text-align: center;">
+                            <strong>40</strong> - Cuarenta <button onclick="speak('Cuarenta', 'es-ES')">🔊</button>
+                        </div>
+                        <div class="vocab-item" style="background: white; padding: 10px; border-radius: 8px; border: 1px solid #eee; text-align: center;">
+                            <strong>50</strong> - Cincuenta <button onclick="speak('Cincuenta', 'es-ES')">🔊</button>
+                        </div>
+                        <div class="vocab-item" style="background: white; padding: 10px; border-radius: 8px; border: 1px solid #eee; text-align: center;">
+                            <strong>60</strong> - Sesenta <button onclick="speak('Sesenta', 'es-ES')">🔊</button>
+                        </div>
+                        <div class="vocab-item" style="background: white; padding: 10px; border-radius: 8px; border: 1px solid #eee; text-align: center;">
+                            <strong>70</strong> - Setenta <button onclick="speak('Setenta', 'es-ES')">🔊</button>
+                        </div>
+                        <div class="vocab-item" style="background: white; padding: 10px; border-radius: 8px; border: 1px solid #eee; text-align: center;">
+                            <strong>80</strong> - Ochenta <button onclick="speak('Ochenta', 'es-ES')">🔊</button>
+                        </div>
+                        <div class="vocab-item" style="background: white; padding: 10px; border-radius: 8px; border: 1px solid #eee; text-align: center;">
+                            <strong>90</strong> - Noventa <button onclick="speak('Noventa', 'es-ES')">🔊</button>
+                        </div>
+                        <div class="vocab-item" style="background: white; padding: 10px; border-radius: 8px; border: 1px solid #eee; text-align: center;">
+                            <strong>100</strong> - Cien <button onclick="speak('Cien', 'es-ES')">🔊</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- THE 20s EXCEPTION -->
+                <div class="explanation" style="background: #fff5f5; border-left-color: #e74c3c; margin-top: 20px;">
+                    <h4 style="margin-bottom: 10px;">2. Important Rule: The 20s</h4>
+                    <p>Numbers from <strong>21 to 29</strong> are written as <strong>one single word</strong>. The "e" at the end of "veinte" changes to "i".</p>
+                    <ul style="margin-top: 10px; list-style: none; padding-left: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 5px;">
+                        <li>21: <strong>Veintiuno</strong> <button onclick="speak('Veintiuno', 'es-ES')">🔊</button></li>
+                        <li>22: <strong>Veintidós</strong> <button onclick="speak('Veintidós', 'es-ES')">🔊</button></li>
+                        <li>23: <strong>Veintitrés</strong> <button onclick="speak('Veintitrés', 'es-ES')">🔊</button></li>
+                        <li>26: <strong>Veintiséis</strong> <button onclick="speak('Veintiséis', 'es-ES')">🔊</button></li>
+                    </ul>
+                </div>
+
+                <!-- COMBINING NUMBERS -->
+                <div class="explanation" style="background: #fdfbf7; border-left-color: #f1c40f; margin-top: 20px;">
+                    <h4 style="margin-bottom: 10px;">3. Combining Numbers (31-99)</h4>
+                    <p>For numbers from 31 to 99, we use three words: <strong>Decade + "y" + Number</strong>.</p>
+                    <div style="margin-top: 10px; font-style: italic;">
+                        <p>31: Treinta <strong>y</strong> uno <button onclick="speak('Treinta y uno', 'es-ES')">🔊</button></p>
+                        <p>45: Cuarenta <strong>y</strong> cinco <button onclick="speak('Cuarenta y cinco', 'es-ES')">🔊</button></p>
+                        <p>99: Noventa <strong>y</strong> nueve <button onclick="speak('Noventa y nueve', 'es-ES')">🔊</button></p>
+                    </div>
+                </div>
+
+                <!-- PRONUNCIATION PRACTICE (25 EXERCISES) -->
+                <div class="exercise-container" style="margin-top: 2rem; border-top: 2px dashed #eee; padding-top: 1.5rem;">
+                    <h3 style="color: var(--secondary-accent);">🗣️ Pronunciation Challenge</h3>
+                    <p style="margin-bottom: 15px; color: #666; font-weight: 500;">
+                        <strong>Instructions:</strong> Look at the number, try to say it out loud in Spanish, and then click the speaker 🔊 to check if you were correct!
+                    </p>
+                    
+                    <div class="writing-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px;">
+                        <!-- 1-8 -->
+                        <div class="clock-card" style="padding: 10px; flex-direction: row; gap: 15px; justify-content: center;">
+                            <span style="font-size: 1.3rem; font-weight: bold;">12</span>
+                            <button class="speak-btn" onclick="speak('Doce', 'es-ES')">🔊</button>
+                        </div>
+                        <div class="clock-card" style="padding: 10px; flex-direction: row; gap: 15px; justify-content: center;">
+                            <span style="font-size: 1.3rem; font-weight: bold;">19</span>
+                            <button class="speak-btn" onclick="speak('Diecinueve', 'es-ES')">🔊</button>
+                        </div>
+                        <div class="clock-card" style="padding: 10px; flex-direction: row; gap: 15px; justify-content: center;">
+                            <span style="font-size: 1.3rem; font-weight: bold;">23</span>
+                            <button class="speak-btn" onclick="speak('Veintitrés', 'es-ES')">🔊</button>
+                        </div>
+                        <div class="clock-card" style="padding: 10px; flex-direction: row; gap: 15px; justify-content: center;">
+                            <span style="font-size: 1.3rem; font-weight: bold;">28</span>
+                            <button class="speak-btn" onclick="speak('Veintiocho', 'es-ES')">🔊</button>
+                        </div>
+                        <div class="clock-card" style="padding: 10px; flex-direction: row; gap: 15px; justify-content: center;">
+                            <span style="font-size: 1.3rem; font-weight: bold;">31</span>
+                            <button class="speak-btn" onclick="speak('Treinta y uno', 'es-ES')">🔊</button>
+                        </div>
+                        <div class="clock-card" style="padding: 10px; flex-direction: row; gap: 15px; justify-content: center;">
+                            <span style="font-size: 1.3rem; font-weight: bold;">35</span>
+                            <button class="speak-btn" onclick="speak('Treinta y cinco', 'es-ES')">🔊</button>
+                        </div>
+                        <div class="clock-card" style="padding: 10px; flex-direction: row; gap: 15px; justify-content: center;">
+                            <span style="font-size: 1.3rem; font-weight: bold;">42</span>
+                            <button class="speak-btn" onclick="speak('Cuarenta y dos', 'es-ES')">🔊</button>
+                        </div>
+                        <div class="clock-card" style="padding: 10px; flex-direction: row; gap: 15px; justify-content: center;">
+                            <span style="font-size: 1.3rem; font-weight: bold;">47</span>
+                            <button class="speak-btn" onclick="speak('Cuarenta y siete', 'es-ES')">🔊</button>
+                        </div>
+                        <!-- 9-16 -->
+                        <div class="clock-card" style="padding: 10px; flex-direction: row; gap: 15px; justify-content: center;">
+                            <span style="font-size: 1.3rem; font-weight: bold;">50</span>
+                            <button class="speak-btn" onclick="speak('Cincuenta', 'es-ES')">🔊</button>
+                        </div>
+                        <div class="clock-card" style="padding: 10px; flex-direction: row; gap: 15px; justify-content: center;">
+                            <span style="font-size: 1.3rem; font-weight: bold;">54</span>
+                            <button class="speak-btn" onclick="speak('Cincuenta y cuatro', 'es-ES')">🔊</button>
+                        </div>
+                        <div class="clock-card" style="padding: 10px; flex-direction: row; gap: 15px; justify-content: center;">
+                            <span style="font-size: 1.3rem; font-weight: bold;">58</span>
+                            <button class="speak-btn" onclick="speak('Cincuenta y ocho', 'es-ES')">🔊</button>
+                        </div>
+                        <div class="clock-card" style="padding: 10px; flex-direction: row; gap: 15px; justify-content: center;">
+                            <span style="font-size: 1.3rem; font-weight: bold;">61</span>
+                            <button class="speak-btn" onclick="speak('Sesenta y uno', 'es-ES')">🔊</button>
+                        </div>
+                        <div class="clock-card" style="padding: 10px; flex-direction: row; gap: 15px; justify-content: center;">
+                            <span style="font-size: 1.3rem; font-weight: bold;">66</span>
+                            <button class="speak-btn" onclick="speak('Sesenta y seis', 'es-ES')">🔊</button>
+                        </div>
+                        <div class="clock-card" style="padding: 10px; flex-direction: row; gap: 15px; justify-content: center;">
+                            <span style="font-size: 1.3rem; font-weight: bold;">70</span>
+                            <button class="speak-btn" onclick="speak('Setenta', 'es-ES')">🔊</button>
+                        </div>
+                        <div class="clock-card" style="padding: 10px; flex-direction: row; gap: 15px; justify-content: center;">
+                            <span style="font-size: 1.3rem; font-weight: bold;">77</span>
+                            <button class="speak-btn" onclick="speak('Setenta y siete', 'es-ES')">🔊</button>
+                        </div>
+                        <div class="clock-card" style="padding: 10px; flex-direction: row; gap: 15px; justify-content: center;">
+                            <span style="font-size: 1.3rem; font-weight: bold;">80</span>
+                            <button class="speak-btn" onclick="speak('Ochenta', 'es-ES')">🔊</button>
+                        </div>
+                        <!-- 17-25 -->
+                        <div class="clock-card" style="padding: 10px; flex-direction: row; gap: 15px; justify-content: center;">
+                            <span style="font-size: 1.3rem; font-weight: bold;">84</span>
+                            <button class="speak-btn" onclick="speak('Ochenta y cuatro', 'es-ES')">🔊</button>
+                        </div>
+                        <div class="clock-card" style="padding: 10px; flex-direction: row; gap: 15px; justify-content: center;">
+                            <span style="font-size: 1.3rem; font-weight: bold;">89</span>
+                            <button class="speak-btn" onclick="speak('Ochenta y nueve', 'es-ES')">🔊</button>
+                        </div>
+                        <div class="clock-card" style="padding: 10px; flex-direction: row; gap: 15px; justify-content: center;">
+                            <span style="font-size: 1.3rem; font-weight: bold;">92</span>
+                            <button class="speak-btn" onclick="speak('Noventa y dos', 'es-ES')">🔊</button>
+                        </div>
+                        <div class="clock-card" style="padding: 10px; flex-direction: row; gap: 15px; justify-content: center;">
+                            <span style="font-size: 1.3rem; font-weight: bold;">96</span>
+                            <button class="speak-btn" onclick="speak('Noventa y seis', 'es-ES')">🔊</button>
+                        </div>
+                        <div class="clock-card" style="padding: 10px; flex-direction: row; gap: 15px; justify-content: center;">
+                            <span style="font-size: 1.3rem; font-weight: bold;">99</span>
+                            <button class="speak-btn" onclick="speak('Noventa y nueve', 'es-ES')">🔊</button>
+                        </div>
+                        <div class="clock-card" style="padding: 10px; flex-direction: row; gap: 15px; justify-content: center;">
+                            <span style="font-size: 1.3rem; font-weight: bold;">100</span>
+                            <button class="speak-btn" onclick="speak('Cien', 'es-ES')">🔊</button>
+                        </div>
+                        <div class="clock-card" style="padding: 10px; flex-direction: row; gap: 15px; justify-content: center;">
+                            <span style="font-size: 1.3rem; font-weight: bold;">15</span>
+                            <button class="speak-btn" onclick="speak('Quince', 'es-ES')">🔊</button>
+                        </div>
+                        <div class="clock-card" style="padding: 10px; flex-direction: row; gap: 15px; justify-content: center;">
+                            <span style="font-size: 1.3rem; font-weight: bold;">21</span>
+                            <button class="speak-btn" onclick="speak('Veintiuno', 'es-ES')">🔊</button>
+                        </div>
+                        <div class="clock-card" style="padding: 10px; flex-direction: row; gap: 15px; justify-content: center;">
+                            <span style="font-size: 1.3rem; font-weight: bold;">40</span>
+                            <button class="speak-btn" onclick="speak('Cuarenta', 'es-ES')">🔊</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN 3: ARITMÉTICA -->
+        <div class="lesson-card" id="lesson3" style="display: none;">
+            <div class="exercise-container">
+                    <h3><button onclick="speak('Aritmética', 'es-ES')"
+                            style="background:none; border:none; cursor:pointer; font-size:1.1rem; vertical-align: middle;">🔊</button>
+                        Aritmética / Arithmetic</h3>
+                    <div class="explanation">
+                        <p><strong>English:</strong> Learn how to read mathematical operations in Spanish. Practice the
+                            symbols and listen to the pronunciation.</p>
+                    </div>
+
+                    <div class="symbols-grid"
+                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 10px; margin-bottom: 2rem;">
+                        <div
+                            style="background: #f8f9fa; padding: 10px; border-radius: 10px; text-align: center; border: 1px solid #eee;">
+                            <span style="font-size: 1.2rem; font-weight: bold; color: var(--accent-color);">+</span>
+                            <p style="margin: 5px 0; font-size: 0.9rem;">más</p>
+                            <button class="speak-btn" onclick="speak('más', 'es-ES')"
+                                style="padding: 2px 8px;">🔊</button>
+                        </div>
+                        <div
+                            style="background: #f8f9fa; padding: 10px; border-radius: 10px; text-align: center; border: 1px solid #eee;">
+                            <span style="font-size: 1.2rem; font-weight: bold; color: var(--accent-color);">-</span>
+                            <p style="margin: 5px 0; font-size: 0.9rem;">menos</p>
+                            <button class="speak-btn" onclick="speak('menos', 'es-ES')"
+                                style="padding: 2px 8px;">🔊</button>
+                        </div>
+                        <div
+                            style="background: #f8f9fa; padding: 10px; border-radius: 10px; text-align: center; border: 1px solid #eee;">
+                            <span style="font-size: 1.2rem; font-weight: bold; color: var(--accent-color);">x</span>
+                            <p style="margin: 5px 0; font-size: 0.9rem;">por</p>
+                            <button class="speak-btn" onclick="speak('por', 'es-ES')"
+                                style="padding: 2px 8px;">🔊</button>
+                        </div>
+                        <div
+                            style="background: #f8f9fa; padding: 10px; border-radius: 10px; text-align: center; border: 1px solid #eee;">
+                            <span style="font-size: 1.2rem; font-weight: bold; color: var(--accent-color);">/</span>
+                            <p style="margin: 5px 0; font-size: 0.9rem;">entre</p>
+                            <button class="speak-btn" onclick="speak('entre', 'es-ES')"
+                                style="padding: 2px 8px;">🔊</button>
+                        </div>
+                        <div
+                            style="background: #f8f9fa; padding: 10px; border-radius: 10px; text-align: center; border: 1px solid #eee;">
+                            <span style="font-size: 1.2rem; font-weight: bold; color: var(--accent-color);">=</span>
+                            <p style="margin: 5px 0; font-size: 0.9rem;">son</p>
+                            <button class="speak-btn" onclick="speak('son', 'es-ES')"
+                                style="padding: 2px 8px;">🔊</button>
+                        </div>
+                    </div>
+
+                    <div class="arithmetic-phrases" style="display: grid; gap: 12px; margin-top: 1.5rem;">
+                        <!-- EJEMPLO 1 -->
+                        <div class="example-row" 
+                             onclick="this.querySelector('.solution-text').style.display = 'block'; this.querySelector('.show-btn').style.display = 'none';"
+                             style="background: #fff; padding: 12px; border-radius: 12px; border: 1px solid #eee; display: flex; align-items: center; gap: 15px; cursor: pointer; transition: all 0.2s; box-shadow: var(--shadow-sm);">
+                            <button class="speak-btn" onclick="event.stopPropagation(); speak('Dos más dos son cuatro', 'es-ES')">🔊</button>
+                            <div style="flex: 1;">
+                                <p style="font-weight: 700; margin: 0; font-size: 1.1rem; color: var(--secondary-accent);">2 + 2 = 4</p>
+                                <p class="solution-text" style="display: none; color: var(--accent-color); font-size: 0.95rem; margin: 5px 0 0 0; font-weight: 600;">Dos <strong>más</strong> dos <strong>son</strong> cuatro.</p>
+                                <span class="show-btn" style="font-size: 0.8rem; color: #999; font-style: italic;">(Click to see answer)</span>
+                            </div>
+                        </div>
+
+                        <!-- EJEMPLO 2 -->
+                        <div class="example-row" 
+                             onclick="this.querySelector('.solution-text').style.display = 'block'; this.querySelector('.show-btn').style.display = 'none';"
+                             style="background: #fff; padding: 12px; border-radius: 12px; border: 1px solid #eee; display: flex; align-items: center; gap: 15px; cursor: pointer; box-shadow: var(--shadow-sm);">
+                            <button class="speak-btn" onclick="event.stopPropagation(); speak('Diez menos tres son siete', 'es-ES')">🔊</button>
+                            <div style="flex: 1;">
+                                <p style="font-weight: 700; margin: 0; font-size: 1.1rem; color: var(--secondary-accent);">10 - 3 = 7</p>
+                                <p class="solution-text" style="display: none; color: var(--accent-color); font-size: 0.95rem; margin: 5px 0 0 0; font-weight: 600;">Diez <strong>menos</strong> tres <strong>son</strong> siete.</p>
+                                <span class="show-btn" style="font-size: 0.8rem; color: #999; font-style: italic;">(Click to see answer)</span>
+                            </div>
+                        </div>
+
+                        <!-- EJEMPLO 3 -->
+                        <div class="example-row" 
+                             onclick="this.querySelector('.solution-text').style.display = 'block'; this.querySelector('.show-btn').style.display = 'none';"
+                             style="background: #fff; padding: 12px; border-radius: 12px; border: 1px solid #eee; display: flex; align-items: center; gap: 15px; cursor: pointer; box-shadow: var(--shadow-sm);">
+                            <button class="speak-btn" onclick="event.stopPropagation(); speak('Cinco por dos son diez', 'es-ES')">🔊</button>
+                            <div style="flex: 1;">
+                                <p style="font-weight: 700; margin: 0; font-size: 1.1rem; color: var(--secondary-accent);">5 x 2 = 10</p>
+                                <p class="solution-text" style="display: none; color: var(--accent-color); font-size: 0.95rem; margin: 5px 0 0 0; font-weight: 600;">Cinco <strong>por</strong> dos <strong>son</strong> diez.</p>
+                                <span class="show-btn" style="font-size: 0.8rem; color: #999; font-style: italic;">(Click to see answer)</span>
+                            </div>
+                        </div>
+
+                        <!-- EJEMPLO 4 -->
+                        <div class="example-row" 
+                             onclick="this.querySelector('.solution-text').style.display = 'block'; this.querySelector('.show-btn').style.display = 'none';"
+                             style="background: #fff; padding: 12px; border-radius: 12px; border: 1px solid #eee; display: flex; align-items: center; gap: 15px; cursor: pointer; box-shadow: var(--shadow-sm);">
+                            <button class="speak-btn" onclick="event.stopPropagation(); speak('Doce entre tres son cuatro', 'es-ES')">🔊</button>
+                            <div style="flex: 1;">
+                                <p style="font-weight: 700; margin: 0; font-size: 1.1rem; color: var(--secondary-accent);">12 / 3 = 4</p>
+                                <p class="solution-text" style="display: none; color: var(--accent-color); font-size: 0.95rem; margin: 5px 0 0 0; font-weight: 600;">Doce <strong>entre</strong> tres <strong>son</strong> cuatro.</p>
+                                <span class="show-btn" style="font-size: 0.8rem; color: #999; font-style: italic;">(Click to see answer)</span>
+                            </div>
+                        </div>
+
+                        <!-- EJEMPLO 5 -->
+                        <div class="example-row" 
+                             onclick="this.querySelector('.solution-text').style.display = 'block'; this.querySelector('.show-btn').style.display = 'none';"
+                             style="background: #fff; padding: 12px; border-radius: 12px; border: 1px solid #eee; display: flex; align-items: center; gap: 15px; cursor: pointer; box-shadow: var(--shadow-sm);">
+                            <button class="speak-btn" onclick="event.stopPropagation(); speak('Cien entre dos son cincuenta', 'es-ES')">🔊</button>
+                            <div style="flex: 1;">
+                                <p style="font-weight: 700; margin: 0; font-size: 1.1rem; color: var(--secondary-accent);">100 / 2 = 50</p>
+                                <p class="solution-text" style="display: none; color: var(--accent-color); font-size: 0.95rem; margin: 5px 0 0 0; font-weight: 600;">Cien <strong>entre</strong> dos <strong>son</strong> cincuenta.</p>
+                                <span class="show-btn" style="font-size: 0.8rem; color: #999; font-style: italic;">(Click to see answer)</span>
+                            </div>
+                        </div>
+
+                        <!-- EJEMPLO 6 -->
+                        <div class="example-row" 
+                             onclick="this.querySelector('.solution-text').style.display = 'block'; this.querySelector('.show-btn').style.display = 'none';"
+                             style="background: #fff; padding: 12px; border-radius: 12px; border: 1px solid #eee; display: flex; align-items: center; gap: 15px; cursor: pointer; box-shadow: var(--shadow-sm);">
+                            <button class="speak-btn" onclick="event.stopPropagation(); speak('Siete más ocho son quince', 'es-ES')">🔊</button>
+                            <div style="flex: 1;">
+                                <p style="font-weight: 700; margin: 0; font-size: 1.1rem; color: var(--secondary-accent);">7 + 8 = 15</p>
+                                <p class="solution-text" style="display: none; color: var(--accent-color); font-size: 0.95rem; margin: 5px 0 0 0; font-weight: 600;">Siete <strong>más</strong> ocho <strong>son</strong> quince.</p>
+                                <span class="show-btn" style="font-size: 0.8rem; color: #999; font-style: italic;">(Click to see answer)</span>
+                            </div>
+                        </div>
+
+                        <!-- EJEMPLO 7 -->
+                        <div class="example-row" 
+                             onclick="this.querySelector('.solution-text').style.display = 'block'; this.querySelector('.show-btn').style.display = 'none';"
+                             style="background: #fff; padding: 12px; border-radius: 12px; border: 1px solid #eee; display: flex; align-items: center; gap: 15px; cursor: pointer; box-shadow: var(--shadow-sm);">
+                            <button class="speak-btn" onclick="event.stopPropagation(); speak('Veinte menos once son nueve', 'es-ES')">🔊</button>
+                            <div style="flex: 1;">
+                                <p style="font-weight: 700; margin: 0; font-size: 1.1rem; color: var(--secondary-accent);">20 - 11 = 9</p>
+                                <p class="solution-text" style="display: none; color: var(--accent-color); font-size: 0.95rem; margin: 5px 0 0 0; font-weight: 600;">Veinte <strong>menos</strong> once <strong>son</strong> nueve.</p>
+                                <span class="show-btn" style="font-size: 0.8rem; color: #999; font-style: italic;">(Click to see answer)</span>
+                            </div>
+                        </div>
+
+                        <!-- EJEMPLO 8 -->
+                        <div class="example-row" 
+                             onclick="this.querySelector('.solution-text').style.display = 'block'; this.querySelector('.show-btn').style.display = 'none';"
+                             style="background: #fff; padding: 12px; border-radius: 12px; border: 1px solid #eee; display: flex; align-items: center; gap: 15px; cursor: pointer; box-shadow: var(--shadow-sm);">
+                            <button class="speak-btn" onclick="event.stopPropagation(); speak('Cuatro por cuatro son dieciséis', 'es-ES')">🔊</button>
+                            <div style="flex: 1;">
+                                <p style="font-weight: 700; margin: 0; font-size: 1.1rem; color: var(--secondary-accent);">4 x 4 = 16</p>
+                                <p class="solution-text" style="display: none; color: var(--accent-color); font-size: 0.95rem; margin: 5px 0 0 0; font-weight: 600;">Cuatro <strong>por</strong> cuatro <strong>son</strong> dieciséis.</p>
+                                <span class="show-btn" style="font-size: 0.8rem; color: #999; font-style: italic;">(Click to see answer)</span>
+                            </div>
+                        </div>
+
+                        <!-- EJEMPLO 9 -->
+                        <div class="example-row" 
+                             onclick="this.querySelector('.solution-text').style.display = 'block'; this.querySelector('.show-btn').style.display = 'none';"
+                             style="background: #fff; padding: 12px; border-radius: 12px; border: 1px solid #eee; display: flex; align-items: center; gap: 15px; cursor: pointer; box-shadow: var(--shadow-sm);">
+                            <button class="speak-btn" onclick="event.stopPropagation(); speak('Treinta entre tres son diez', 'es-ES')">🔊</button>
+                            <div style="flex: 1;">
+                                <p style="font-weight: 700; margin: 0; font-size: 1.1rem; color: var(--secondary-accent);">30 / 3 = 10</p>
+                                <p class="solution-text" style="display: none; color: var(--accent-color); font-size: 0.95rem; margin: 5px 0 0 0; font-weight: 600;">Treinta <strong>entre</strong> tres <strong>son</strong> diez.</p>
+                                <span class="show-btn" style="font-size: 0.8rem; color: #999; font-style: italic;">(Click to see answer)</span>
+                            </div>
+                        </div>
+
+                        <!-- EJEMPLO 10 -->
+                        <div class="example-row" 
+                             onclick="this.querySelector('.solution-text').style.display = 'block'; this.querySelector('.show-btn').style.display = 'none';"
+                             style="background: #fff; padding: 12px; border-radius: 12px; border: 1px solid #eee; display: flex; align-items: center; gap: 15px; cursor: pointer; box-shadow: var(--shadow-sm);">
+                            <button class="speak-btn" onclick="event.stopPropagation(); speak('Doce más trece son veinticinco', 'es-ES')">🔊</button>
+                            <div style="flex: 1;">
+                                <p style="font-weight: 700; margin: 0; font-size: 1.1rem; color: var(--secondary-accent);">12 + 13 = 25</p>
+                                <p class="solution-text" style="display: none; color: var(--accent-color); font-size: 0.95rem; margin: 5px 0 0 0; font-weight: 600;">Doce <strong>más</strong> trece <strong>son</strong> veinticinco.</p>
+                                <span class="show-btn" style="font-size: 0.8rem; color: #999; font-style: italic;">(Click to see answer)</span>
+                            </div>
+                        </div>
+                    </div><!-- Cierre de arithmetic-phrases -->
+                </div><!-- Cierre de exercise-container -->
+        </div><!-- Cierre de lesson3 -->
+
+        <!-- SECCIÓN 4: LA EDAD -->
+        <div class="lesson-card" id="lesson4" style="display: none;">
+            <div class="exercise-container">
+                    <h3><button onclick="speak('La Edad', 'es-ES')"
+                            style="background:none; border:none; cursor:pointer; font-size:1.1rem; vertical-align: middle;">🔊</button>
+                        La Edad / Age</h3>
+                    <div class="explanation">
+                        <p><strong>English:</strong> In Spanish, we don't "are" an age, we "have" years. We use the verb
+                            <strong>tener</strong>.</p>
+                    </div>
+
+                    <div class="age-grid"
+                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                        <!-- Ejemplo 1 -->
+                        <div
+                            style="background: #fff; padding: 15px; border-radius: 15px; border: 1px solid #eee; text-align: center; box-shadow: var(--shadow-sm);">
+                            <p style="font-weight: bold; margin-bottom: 5px; color: var(--secondary-accent);">¿Cuántos
+                                años tiene Juan?</p>
+                            <div
+                                style="font-size: 2.5rem; font-weight: 800; color: var(--accent-color); margin: 10px 0;">
+                                25</div>
+                            <button class="speak-btn" onclick="speak('Tiene veinticinco años', 'es-ES')"
+                                style="padding: 8px 20px; font-size: 1rem;">🔊 Escuchar</button>
+                        </div>
+                        <!-- Ejemplo 2 -->
+                        <div
+                            style="background: #fff; padding: 15px; border-radius: 15px; border: 1px solid #eee; text-align: center; box-shadow: var(--shadow-sm);">
+                            <p style="font-weight: bold; margin-bottom: 5px; color: var(--secondary-accent);">¿Cuántos
+                                años tiene ella?</p>
+                            <div
+                                style="font-size: 2.5rem; font-weight: 800; color: var(--accent-color); margin: 10px 0;">
+                                32</div>
+                            <button class="speak-btn" onclick="speak('Tiene treinta y dos años', 'es-ES')"
+                                style="padding: 8px 20px; font-size: 1rem;">🔊 Escuchar</button>
+                        </div>
+                        <!-- Ejemplo 3 -->
+                        <div
+                            style="background: #fff; padding: 15px; border-radius: 15px; border: 1px solid #eee; text-align: center; box-shadow: var(--shadow-sm);">
+                            <p style="font-weight: bold; margin-bottom: 5px; color: var(--secondary-accent);">¿Cuántos
+                                años tiene tu hermano?</p>
+                            <div
+                                style="font-size: 2.5rem; font-weight: 800; color: var(--accent-color); margin: 10px 0;">
+                                18</div>
+                            <button class="speak-btn" onclick="speak('Tiene dieciocho años', 'es-ES')"
+                                style="padding: 8px 20px; font-size: 1rem;">🔊 Escuchar</button>
+                        </div>
+                        <!-- Ejemplo 4 -->
+                        <div
+                            style="background: #fff; padding: 15px; border-radius: 15px; border: 1px solid #eee; text-align: center; box-shadow: var(--shadow-sm);">
+                            <p style="font-weight: bold; margin-bottom: 5px; color: var(--secondary-accent);">¿Cuántos
+                                años tiene el abuelo?</p>
+                            <div
+                                style="font-size: 2.5rem; font-weight: 800; color: var(--accent-color); margin: 10px 0;">
+                                80</div>
+                            <button class="speak-btn" onclick="speak('Tiene ochenta años', 'es-ES')"
+                                style="padding: 8px 20px; font-size: 1rem;">🔊 Escuchar</button>
+                        </div>
+                        <!-- Ejemplo 5 -->
+                        <div
+                            style="background: #fff; padding: 15px; border-radius: 15px; border: 1px solid #eee; text-align: center; box-shadow: var(--shadow-sm);">
+                            <p style="font-weight: bold; margin-bottom: 5px; color: var(--secondary-accent);">¿Cuántos
+                                años tienes tú?</p>
+                            <div
+                                style="font-size: 2.5rem; font-weight: 800; color: var(--accent-color); margin: 10px 0;">
+                                27</div>
+                            <button class="speak-btn" onclick="speak('Tengo veintisiete años', 'es-ES')"
+                                style="padding: 8px 20px; font-size: 1rem;">🔊 Escuchar</button>
+                        </div>
+                        <!-- Ejemplo 6 -->
+                        <div
+                            style="background: #fff; padding: 15px; border-radius: 15px; border: 1px solid #eee; text-align: center; box-shadow: var(--shadow-sm);">
+                            <p style="font-weight: bold; margin-bottom: 5px; color: var(--secondary-accent);">¿Cuántos
+                                años tiene su hijo?</p>
+                            <div
+                                style="font-size: 2.5rem; font-weight: 800; color: var(--accent-color); margin: 10px 0;">
+                                5</div>
+                            <button class="speak-btn" onclick="speak('Tiene cinco años', 'es-ES')"
+                                style="padding: 8px 20px; font-size: 1rem;">🔊 Escuchar</button>
+                        </div>
+                    </div>
+
+                    <!-- EJERCICIO DE ESCRITURA: EDAD -->
+                    <div class="exercise-container writing-exercise"
+                        style="margin-top: 1.5rem; border-top: 1px dashed #eee; padding-top: 1.5rem;">
+                        <h3 style="color: var(--secondary-accent); font-size: 1rem; margin-bottom: 0.5rem;"><button
+                                onclick="speak('¡Escribe la frase!', 'es-ES')"
+                                style="background:none; border:none; cursor:pointer; font-size:1rem; vertical-align: middle;">🔊</button>
+                            ✍️ ¡Escribe la frase!</h3>
+
+                        <div style="display: grid; gap: 10px;">
+                            <div
+                                style="background: #fdfbf7; padding: 10px; border-radius: 12px; border: 2px solid #f39c12; display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+                                <span style="font-weight: 700; min-width: 150px; color: #e67e22;">Juan (25):</span>
+                                <input type="text" class="age-input" data-answer="Juan tiene veinticinco años|Tiene veinticinco años"
+                                    value="Juan tiene veinticinco años"
+                                    placeholder="Ejemplo"
+                                    style="flex: 1; min-width: 200px; padding: 6px 12px; border: 1px solid #f39c12; border-radius: 8px; background: #fffcf5;">
+                            </div>
+                            <div
+                                style="background: #f8f9fa; padding: 10px; border-radius: 12px; border: 1px solid #eee; display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+                                <span style="font-weight: 600; min-width: 150px;">Lucía (32):</span>
+                                <input type="text" class="age-input" data-answer="Lucía tiene treinta y dos años|Tiene treinta y dos años"
+                                    placeholder="Escribe la frase..."
+                                    style="flex: 1; min-width: 200px; padding: 6px 12px; border: 1px solid #ccc; border-radius: 8px;">
+                            </div>
+                            <div
+                                style="background: #f8f9fa; padding: 10px; border-radius: 12px; border: 1px solid #eee; display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+                                <span style="font-weight: 600; min-width: 150px;">Yo (27):</span>
+                                <input type="text" class="age-input" data-answer="Yo tengo veintisiete años|Tengo veintisiete años"
+                                    placeholder="Escribe la frase..."
+                                    style="flex: 1; min-width: 200px; padding: 6px 12px; border: 1px solid #ccc; border-radius: 8px;">
+                            </div>
+                            <div
+                                style="background: #f8f9fa; padding: 10px; border-radius: 12px; border: 1px solid #eee; display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+                                <span style="font-weight: 600; min-width: 150px;">Mi hermano (18):</span>
+                                <input type="text" class="age-input" data-answer="Mi hermano tiene dieciocho años|Tiene dieciocho años"
+                                    placeholder="Escribe la frase..."
+                                    style="flex: 1; min-width: 200px; padding: 6px 12px; border: 1px solid #ccc; border-radius: 8px;">
+                            </div>
+                            <div
+                                style="background: #f8f9fa; padding: 10px; border-radius: 12px; border: 1px solid #eee; display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+                                <span style="font-weight: 600; min-width: 150px;">El abuelo (80):</span>
+                                <input type="text" class="age-input" data-answer="El abuelo tiene ochenta años|Tiene ochenta años"
+                                    placeholder="Escribe la frase..."
+                                    style="flex: 1; min-width: 200px; padding: 6px 12px; border: 1px solid #ccc; border-radius: 8px;">
+                            </div>
+                            <div
+                                style="background: #f8f9fa; padding: 10px; border-radius: 12px; border: 1px solid #eee; display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+                                <span style="font-weight: 600; min-width: 150px;">Nosotros (40):</span>
+                                <input type="text" class="age-input" data-answer="Nosotros tenemos cuarenta años|Tenemos cuarenta años"
+                                    placeholder="Escribe la frase..."
+                                    style="flex: 1; min-width: 200px; padding: 6px 12px; border: 1px solid #ccc; border-radius: 8px;">
+                            </div>
+                            <div
+                                style="background: #f8f9fa; padding: 10px; border-radius: 12px; border: 1px solid #eee; display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+                                <span style="font-weight: 600; min-width: 150px;">Tú (21):</span>
+                                <input type="text" class="age-input" data-answer="Tú tienes veintiuno años|Tienes veintiuno años"
+                                    placeholder="Escribe la frase..."
+                                    style="flex: 1; min-width: 200px; padding: 6px 12px; border: 1px solid #ccc; border-radius: 8px;">
+                            </div>
+                            <div
+                                style="background: #f8f9fa; padding: 10px; border-radius: 12px; border: 1px solid #eee; display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+                                <span style="font-weight: 600; min-width: 150px;">Mis padres (50):</span>
+                                <input type="text" class="age-input" data-answer="Mis padres tienen cincuenta años|Tienen cincuenta años"
+                                    placeholder="Escribe la frase..."
+                                    style="flex: 1; min-width: 200px; padding: 6px 12px; border: 1px solid #ccc; border-radius: 8px;">
+                            </div>
+                            <div
+                                style="background: #f8f9fa; padding: 10px; border-radius: 12px; border: 1px solid #eee; display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+                                <span style="font-weight: 600; min-width: 150px;">Ellas (12):</span>
+                                <input type="text" class="age-input" data-answer="Ellas tienen doce años|Tienen doce años"
+                                    placeholder="Escribe la frase..."
+                                    style="flex: 1; min-width: 200px; padding: 6px 12px; border: 1px solid #ccc; border-radius: 8px;">
+                            </div>
+                            <div
+                                style="background: #f8f9fa; padding: 10px; border-radius: 12px; border: 1px solid #eee; display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+                                <span style="font-weight: 600; min-width: 150px;">Usted (64):</span>
+                                <input type="text" class="age-input" data-answer="Usted tiene sesenta y cuatro años|Tiene sesenta y cuatro años"
+                                    placeholder="Escribe la frase..."
+                                    style="flex: 1; min-width: 200px; padding: 6px 12px; border: 1px solid #ccc; border-radius: 8px;">
+                            </div>
+                        </div>
+
+                        <div style="margin-top: 1rem; text-align: center;">
+                            <button class="nav-btn" onclick="checkAgeWriting()"
+                                style="background: var(--accent-color); color: white; border: none; padding: 8px 20px; border-radius: 20px; font-weight: 600; cursor: pointer; font-size: 0.85rem;">Comprobar
+                                frases</button>
+                            <p class="feedback" id="feedback-age-writing"
+                                style="margin-top: 5px; font-size: 0.85rem; font-weight: 600; min-height: 20px;"></p>
+                        </div>
+                    </div><!-- Cierre de writing-exercise -->
+                </div><!-- Cierre de exercise-container (Age) -->
+        </div><!-- Cierre de lesson4 -->
+
+        <!-- SECCIÓN 5: LA HORA -->
+        <div class="lesson-card" id="lesson5" style="display: none;">
+            <div class="exercise-container">
+                    <h3><button onclick="speak('La Hora', 'es-ES')"
+                            style="background:none; border:none; cursor:pointer; font-size:1.1rem; vertical-align: middle;">🔊</button>
+                        La Hora / Time</h3>
+                    <div class="explanation">
+                        <p><strong>English:</strong> In Spanish, there are different ways to ask for the time depending
+                            on who you are talking to.</p>
+
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 10px;">
+                            <div
+                                style="background: #fdfbf7; padding: 10px; border-radius: 10px; border-left: 4px solid #e67e22;">
+                                <p style="font-weight: bold; font-size: 0.8rem; margin-bottom: 5px; color: #e67e22;">
+                                    Informal (Tú)</p>
+                                <button class="speak-btn" onclick="speak('¿Qué hora es?', 'es-ES')"
+                                    style="padding: 2px 8px; font-size: 0.8rem;">🔊 ¿Qué hora es?</button><br>
+                                <button class="speak-btn" onclick="speak('¿Tienes hora?', 'es-ES')"
+                                    style="padding: 2px 8px; font-size: 0.8rem; margin-top: 5px;">🔊 ¿Tienes
+                                    hora?</button>
+                            </div>
+                            <div
+                                style="background: #f7f9fd; padding: 10px; border-radius: 10px; border-left: 4px solid #339af0;">
+                                <p style="font-weight: bold; font-size: 0.8rem; margin-bottom: 5px; color: #339af0;">
+                                    Formal (Usted)</p>
+                                <button class="speak-btn" onclick="speak('¿Qué hora tiene usted?', 'es-ES')"
+                                    style="padding: 2px 8px; font-size: 0.8rem;">🔊 ¿Qué hora tiene?</button><br>
+                                <button class="speak-btn"
+                                    onclick="speak('¿Podría decirme la hora, por favor?', 'es-ES')"
+                                    style="padding: 2px 8px; font-size: 0.8rem; margin-top: 5px;">🔊 ¿Podría decirme la
+                                    hora?</button>
+                            </div>
+                        </div>
+
+                        <p style="margin-top: 15px;">Remember: Use <strong>"Es la..."</strong> for 1:00 and <strong>"Son
+                                las..."</strong> for all other hours.</p>
+                    </div>
+
+                    <style>
+                        .clock-container {
+                            display: grid;
+                            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+                            gap: 20px;
+                            margin-top: 20px;
+                        }
+
+                        .clock-card {
+                            background: #fff;
+                            padding: 15px;
+                            border-radius: 20px;
+                            border: 1px solid #eee;
+                            text-align: center;
+                            box-shadow: var(--shadow-sm);
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                        }
+
+                        .analog-clock {
+                            width: 80px;
+                            height: 80px;
+                            border: 3px solid #333;
+                            border-radius: 50%;
+                            position: relative;
+                            margin-bottom: 10px;
+                            background: white;
+                        }
+
+                        .analog-clock::after {
+                            content: '';
+                            width: 6px;
+                            height: 6px;
+                            background: #333;
+                            border-radius: 50%;
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                            z-index: 10;
+                        }
+
+                        .hand {
+                            position: absolute;
+                            bottom: 50%;
+                            left: 50%;
+                            transform-origin: bottom center;
+                            background: #333;
+                            border-radius: 4px;
+                        }
+
+                        .hour-hand {
+                            width: 3px;
+                            height: 20px;
+                            z-index: 5;
+                        }
+
+                        .min-hand {
+                            width: 2px;
+                            height: 30px;
+                            z-index: 4;
+                            background: #666;
+                        }
+
+                        /* Posiciones de las manecillas */
+                        .h-3 {
+                            transform: rotate(90deg) translateX(-50%);
+                        }
+
+                        .m-0 {
+                            transform: rotate(0deg) translateX(-50%);
+                        }
+
+                        .h-4 {
+                            transform: rotate(120deg) translateX(-50%);
+                        }
+
+                        .m-15 {
+                            transform: rotate(90deg) translateX(-50%);
+                        }
+
+                        .h-6 {
+                            transform: rotate(180deg) translateX(-50%);
+                        }
+
+                        .m-30 {
+                            transform: rotate(180deg) translateX(-50%);
+                        }
+
+                        .h-9 {
+                            transform: rotate(270deg) translateX(-50%);
+                        }
+
+                        .m-45 {
+                            transform: rotate(270deg) translateX(-50%);
+                        }
+
+                        .h-1 {
+                            transform: rotate(30deg) translateX(-50%);
+                        }
+                    </style>
+
+                    <div class="clock-container">
+                        <!-- 3:00 -->
+                        <div class="clock-card">
+                            <div class="analog-clock">
+                                <div class="hand hour-hand h-3"></div>
+                                <div class="hand min-hand m-0"></div>
+                            </div>
+                            <p style="font-weight: bold; margin: 5px 0;">3:00</p>
+                            <p style="font-size: 0.85rem; color: var(--accent-color); font-weight: 600;">Son las tres en
+                                punto</p>
+                            <button class="speak-btn" onclick="speak('Son las tres en punto', 'es-ES')"
+                                style="margin-top: 10px;">🔊</button>
+                        </div>
+
+                        <!-- 4:15 -->
+                        <div class="clock-card">
+                            <div class="analog-clock">
+                                <div class="hand hour-hand h-4"></div>
+                                <div class="hand min-hand m-15"></div>
+                            </div>
+                            <p style="font-weight: bold; margin: 5px 0;">4:15</p>
+                            <p style="font-size: 0.85rem; color: var(--accent-color); font-weight: 600;">Son las cuatro
+                                y cuarto</p>
+                            <button class="speak-btn" onclick="speak('Son las cuatro y cuarto', 'es-ES')"
+                                style="margin-top: 10px;">🔊</button>
+                        </div>
+
+                        <!-- 6:30 -->
+                        <div class="clock-card">
+                            <div class="analog-clock">
+                                <div class="hand hour-hand h-6"></div>
+                                <div class="hand min-hand m-30"></div>
+                            </div>
+                            <p style="font-weight: bold; margin: 5px 0;">6:30</p>
+                            <p style="font-size: 0.85rem; color: var(--accent-color); font-weight: 600;">Son las seis y
+                                media</p>
+                            <button class="speak-btn" onclick="speak('Son las seis y media', 'es-ES')"
+                                style="margin-top: 10px;">🔊</button>
+                        </div>
+
+                        <!-- 8:45 -->
+                        <div class="clock-card">
+                            <div class="analog-clock">
+                                <div class="hand hour-hand h-9"></div>
+                                <div class="hand min-hand m-45"></div>
+                            </div>
+                            <p style="font-weight: bold; margin: 5px 0;">8:45</p>
+                            <p style="font-size: 0.85rem; color: var(--accent-color); font-weight: 600;">Son las nueve
+                                menos cuarto</p>
+                            <button class="speak-btn" onclick="speak('Son las nueve menos cuarto', 'es-ES')"
+                                style="margin-top: 10px;">🔊</button>
+                        </div>
+
+                        <!-- 1:00 -->
+                        <div class="clock-card">
+                            <div class="analog-clock">
+                                <div class="hand hour-hand h-1"></div>
+                                <div class="hand min-hand m-0"></div>
+                            </div>
+                            <p style="font-weight: bold; margin: 0;">1:00</p>
+                            <p style="font-size: 0.85rem; color: var(--accent-color); font-weight: 600;">Es la una en
+                                punto</p>
+                            <button class="speak-btn" onclick="speak('Es la una en punto', 'es-ES')"
+                                style="margin-top: 10px;">🔊</button>
+                        </div>
+                    </div>
+
+                    <!-- EJERCICIO DE ESCRITURA: LA HORA -->
+                    <div class="exercise-container writing-exercise"
+                        style="margin-top: 1.5rem; border-top: 1px dashed #eee; padding-top: 1.5rem;">
+                        <h3 style="color: var(--secondary-accent); font-size: 1rem; margin-bottom: 0.5rem;"><button
+                                onclick="speak('¡Escribe la hora!', 'es-ES')"
+                                style="background:none; border:none; cursor:pointer; font-size:1rem; vertical-align: middle;">🔊</button>
+                            ✍️ ¡Escribe la hora!</h3>
+
+                        <div style="display: grid; gap: 10px;">
+                            <div
+                                style="background: #f8f9fa; padding: 10px; border-radius: 12px; border: 1px solid #eee; display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+                                <span style="font-weight: 600; min-width: 80px;">1:00</span>
+                                <input type="text" class="time-input" data-answer="Es la una en punto"
+                                    placeholder="..."
+                                    style="flex: 1; min-width: 200px; padding: 6px 12px; border: 1px solid #ccc; border-radius: 8px;">
+                            </div>
+                            <div
+                                style="background: #f8f9fa; padding: 10px; border-radius: 12px; border: 1px solid #eee; display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+                                <span style="font-weight: 600; min-width: 80px;">6:30</span>
+                                <input type="text" class="time-input" data-answer="Son las seis y media"
+                                    placeholder="..."
+                                    style="flex: 1; min-width: 200px; padding: 6px 12px; border: 1px solid #ccc; border-radius: 8px;">
+                            </div>
+                            <div
+                                style="background: #f8f9fa; padding: 10px; border-radius: 12px; border: 1px solid #eee; display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+                                <span style="font-weight: 600; min-width: 80px;">4:15</span>
+                                <input type="text" class="time-input" data-answer="Son las cuatro y cuarto"
+                                    placeholder="..."
+                                    style="flex: 1; min-width: 200px; padding: 6px 12px; border: 1px solid #ccc; border-radius: 8px;">
+                            </div>
+                            <div
+                                style="background: #f8f9fa; padding: 10px; border-radius: 12px; border: 1px solid #eee; display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+                                <span style="font-weight: 600; min-width: 80px;">8:45</span>
+                                <input type="text" class="time-input" data-answer="Son las nueve menos cuarto"
+                                    placeholder="..."
+                                    style="flex: 1; min-width: 200px; padding: 6px 12px; border: 1px solid #ccc; border-radius: 8px;">
+                            </div>
+                            <!-- Nuevos 3 ejercicios -->
+                            <div
+                                style="background: #f8f9fa; padding: 10px; border-radius: 12px; border: 1px solid #eee; display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+                                <span style="font-weight: 600; min-width: 80px;">12:00</span>
+                                <input type="text" class="time-input" data-answer="Son las doce en punto"
+                                    placeholder="..."
+                                    style="flex: 1; min-width: 200px; padding: 6px 12px; border: 1px solid #ccc; border-radius: 8px;">
+                            </div>
+                            <div
+                                style="background: #f8f9fa; padding: 10px; border-radius: 12px; border: 1px solid #eee; display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+                                <span style="font-weight: 600; min-width: 80px;">3:10</span>
+                                <input type="text" class="time-input" data-answer="Son las tres y diez"
+                                    placeholder="..."
+                                    style="flex: 1; min-width: 200px; padding: 6px 12px; border: 1px solid #ccc; border-radius: 8px;">
+                            </div>
+                            <div
+                                style="background: #f8f9fa; padding: 10px; border-radius: 12px; border: 1px solid #eee; display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+                                <span style="font-weight: 600; min-width: 80px;">7:50</span>
+                                <input type="text" class="time-input" data-answer="Son las ocho menos diez"
+                                    placeholder="..."
+                                    style="flex: 1; min-width: 200px; padding: 6px 12px; border: 1px solid #ccc; border-radius: 8px;">
+                            </div>
+                        </div>
+
+                        <div style="margin-top: 1rem; text-align: center;">
+                            <button class="nav-btn" onclick="checkTimeWriting()"
+                                style="background: var(--accent-color); color: white; border: none; padding: 8px 20px; border-radius: 20px; font-weight: 600; cursor: pointer; font-size: 0.85rem;">Comprobar
+                                horas</button>
+                            <p class="feedback" id="feedback-time-writing"
+                                style="margin-top: 5px; font-size: 0.85rem; font-weight: 600; min-height: 20px;"></p>
+                        </div>
+                    </div><!-- Cierre de writing-exercise -->
+
+                    <!-- EJERCICIO DE PRONUNCIACIÓN: LA HORA -->
+                    <div class="exercise-container pronunciation-exercise"
+                        style="margin-top: 1.5rem; border-top: 1px dashed #eee; padding-top: 1.5rem;">
+                        <h3 style="color: var(--secondary-accent); font-size: 1rem; margin-bottom: 0.5rem;"><button
+                                onclick="speak('¡Dilo en voz alta!', 'es-ES')"
+                                style="background:none; border:none; cursor:pointer; font-size:1rem; vertical-align: middle;">🔊</button>
+                            🗣️ ¡Dilo en voz alta!</h3>
+                        <p style="margin-bottom: 15px; color: #666; font-weight: 500;">
+                            <strong>Instructions:</strong> Try to say the time out loud, then click to reveal the answer and listen to the pronunciation.
+                        </p>
+
+                        <div style="display: grid; gap: 12px;">
+                            <!-- Exercise 1 -->
+                            <div class="example-row" 
+                                 onclick="this.querySelector('.solution-text').style.display = 'block'; this.querySelector('.show-btn').style.display = 'none';"
+                                 style="background: #fff; padding: 12px; border-radius: 12px; border: 1px solid #eee; display: flex; align-items: center; gap: 15px; cursor: pointer; box-shadow: var(--shadow-sm);">
+                                <button class="speak-btn" onclick="event.stopPropagation(); speak('Son las cinco y cuarto', 'es-ES')">🔊</button>
+                                <div style="flex: 1;">
+                                    <p style="font-weight: 700; margin: 0; font-size: 1.1rem; color: var(--secondary-accent);">5:15</p>
+                                    <p class="solution-text" style="display: none; color: var(--accent-color); font-size: 0.95rem; margin: 5px 0 0 0; font-weight: 600;">Son las cinco y cuarto.</p>
+                                    <span class="show-btn" style="font-size: 0.8rem; color: #999; font-style: italic;">(Click to see answer)</span>
+                                </div>
+                            </div>
+
+                            <!-- Exercise 2 -->
+                            <div class="example-row" 
+                                 onclick="this.querySelector('.solution-text').style.display = 'block'; this.querySelector('.show-btn').style.display = 'none';"
+                                 style="background: #fff; padding: 12px; border-radius: 12px; border: 1px solid #eee; display: flex; align-items: center; gap: 15px; cursor: pointer; box-shadow: var(--shadow-sm);">
+                                <button class="speak-btn" onclick="event.stopPropagation(); speak('Es la una y media', 'es-ES')">🔊</button>
+                                <div style="flex: 1;">
+                                    <p style="font-weight: 700; margin: 0; font-size: 1.1rem; color: var(--secondary-accent);">1:30</p>
+                                    <p class="solution-text" style="display: none; color: var(--accent-color); font-size: 0.95rem; margin: 5px 0 0 0; font-weight: 600;">Es la una y media.</p>
+                                    <span class="show-btn" style="font-size: 0.8rem; color: #999; font-style: italic;">(Click to see answer)</span>
+                                </div>
+                            </div>
+
+                            <!-- Exercise 3 -->
+                            <div class="example-row" 
+                                 onclick="this.querySelector('.solution-text').style.display = 'block'; this.querySelector('.show-btn').style.display = 'none';"
+                                 style="background: #fff; padding: 12px; border-radius: 12px; border: 1px solid #eee; display: flex; align-items: center; gap: 15px; cursor: pointer; box-shadow: var(--shadow-sm);">
+                                <button class="speak-btn" onclick="event.stopPropagation(); speak('Son las diez menos veinte', 'es-ES')">🔊</button>
+                                <div style="flex: 1;">
+                                    <p style="font-weight: 700; margin: 0; font-size: 1.1rem; color: var(--secondary-accent);">9:40</p>
+                                    <p class="solution-text" style="display: none; color: var(--accent-color); font-size: 0.95rem; margin: 5px 0 0 0; font-weight: 600;">Son las diez menos veinte.</p>
+                                    <span class="show-btn" style="font-size: 0.8rem; color: #999; font-style: italic;">(Click to see answer)</span>
+                                </div>
+                            </div>
+
+                            <!-- Exercise 4 -->
+                            <div class="example-row" 
+                                 onclick="this.querySelector('.solution-text').style.display = 'block'; this.querySelector('.show-btn').style.display = 'none';"
+                                 style="background: #fff; padding: 12px; border-radius: 12px; border: 1px solid #eee; display: flex; align-items: center; gap: 15px; cursor: pointer; box-shadow: var(--shadow-sm);">
+                                <button class="speak-btn" onclick="event.stopPropagation(); speak('Son las once y cinco', 'es-ES')">🔊</button>
+                                <div style="flex: 1;">
+                                    <p style="font-weight: 700; margin: 0; font-size: 1.1rem; color: var(--secondary-accent);">11:05</p>
+                                    <p class="solution-text" style="display: none; color: var(--accent-color); font-size: 0.95rem; margin: 5px 0 0 0; font-weight: 600;">Son las once y cinco.</p>
+                                    <span class="show-btn" style="font-size: 0.8rem; color: #999; font-style: italic;">(Click to see answer)</span>
+                                </div>
+                            </div>
+
+                            <!-- Exercise 5 -->
+                            <div class="example-row" 
+                                 onclick="this.querySelector('.solution-text').style.display = 'block'; this.querySelector('.show-btn').style.display = 'none';"
+                                 style="background: #fff; padding: 12px; border-radius: 12px; border: 1px solid #eee; display: flex; align-items: center; gap: 15px; cursor: pointer; box-shadow: var(--shadow-sm);">
+                                <button class="speak-btn" onclick="event.stopPropagation(); speak('Son las dos menos cuarto', 'es-ES')">🔊</button>
+                                <div style="flex: 1;">
+                                    <p style="font-weight: 700; margin: 0; font-size: 1.1rem; color: var(--secondary-accent);">1:45</p>
+                                    <p class="solution-text" style="display: none; color: var(--accent-color); font-size: 0.95rem; margin: 5px 0 0 0; font-weight: 600;">Son las dos menos cuarto.</p>
+                                    <span class="show-btn" style="font-size: 0.8rem; color: #999; font-style: italic;">(Click to see answer)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- Cierre de pronunciation-exercise -->
+                </div><!-- Cierre de exercise-container (Time) -->
+            </div><!-- Cierre de lesson5 -->
+    </div><!-- Cierre de main container -->
+
+    <script src="app.js"></script>
+</body>
+
+</html>

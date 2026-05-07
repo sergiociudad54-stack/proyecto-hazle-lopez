@@ -15,7 +15,7 @@ function showLesson(lessonId) {
 
     // Show selected lesson
     document.getElementById('lesson' + lessonId).classList.add('active');
-    
+
     // Smooth scroll to top of lesson
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
@@ -60,30 +60,30 @@ draggables.forEach(draggable => {
         draggingElement.style.pointerEvents = 'none';
         const target = document.elementFromPoint(touch.clientX, touch.clientY);
         draggingElement.style.pointerEvents = 'auto';
-        
+
         const zone = target?.closest('.drop-item');
-        
+
         dropZones.forEach(z => z.classList.remove('hover'));
         if (zone) zone.classList.add('hover');
-        
+
         if (e.cancelable) e.preventDefault(); // Stop scrolling
     }, { passive: false });
 
     draggable.addEventListener('touchend', (e) => {
         const touch = e.changedTouches[0];
         draggable.classList.remove('dragging');
-        
+
         // Final check for the zone
         draggable.style.pointerEvents = 'none';
         const target = document.elementFromPoint(touch.clientX, touch.clientY);
         draggable.style.pointerEvents = 'auto';
-        
+
         const zone = target?.closest('.drop-item');
-        
+
         if (zone) {
             handleDrop(draggable, zone);
         }
-        
+
         dropZones.forEach(z => z.classList.remove('hover'));
     });
 });
@@ -117,9 +117,9 @@ function handleDrop(draggable, zone) {
         draggable.classList.add('placed');
         draggable.setAttribute('draggable', 'false');
         draggable.style.pointerEvents = 'auto'; // Ensure it's clickable for audio if needed
-        
+
         // Success feedback
-        checkProgress(zone.parentElement);
+        checkProgress(zone);
     } else {
         // Error visual feedback
         zone.style.borderColor = '#c0392b';
@@ -131,18 +131,20 @@ function handleDrop(draggable, zone) {
     }
 }
 
-function checkProgress(container) {
-    const total = container.querySelectorAll('.drop-item').length;
-    const filled = container.querySelectorAll('.draggable.placed').length;
-    
-    if (total === filled) {
-        const feedbackId = container.parentElement.querySelector('.feedback')?.id;
-        if (feedbackId) {
-            document.getElementById(feedbackId).textContent = `¡Buen trabajo! ✅`;
-            document.getElementById(feedbackId).style.color = "var(--success)";
-            
-            // Speak with verve (higher pitch and rate)
-            speak(`¡Buen trabajo!`, 'es-ES', 1.1, 1.2);
+function checkProgress(zone) {
+    const exerciseContainer = zone.closest('.exercise-container');
+    if (!exerciseContainer) return;
+
+    const total = exerciseContainer.querySelectorAll('.drop-item').length;
+    const filled = exerciseContainer.querySelectorAll('.draggable.placed').length;
+
+    if (total === filled && total > 0) {
+        const feedback = exerciseContainer.querySelector('.feedback');
+        if (feedback) {
+            feedback.textContent = `¡Excelente! Has resuelto todos los acertijos. 🏆`;
+            feedback.style.color = "var(--success)";
+
+            speak(`¡Excelente! Has resuelto todos los acertijos.`, 'es-ES', 1.1, 1.2);
         }
     }
 }
@@ -167,7 +169,7 @@ function checkAnswer(btn, isCorrect) {
 function checkFavoriteDay() {
     const input = document.getElementById('fav-day-input').value.trim().toLowerCase();
     const feedback = document.getElementById('fav-day-feedback');
-    
+
     const diasValidos = ['lunes', 'martes', 'miércoles', 'miercoles', 'jueves', 'viernes', 'sábado', 'sabado', 'domingo'];
     const correcciones = {
         'miercoles': 'miércoles',
@@ -182,6 +184,79 @@ function checkFavoriteDay() {
         const solucion = "Sábado (por ejemplo)";
         feedback.innerHTML = `<span style="color: var(--accent-color);">No te preocupes. La solución podría ser: <strong>${solucion}</strong>. ¡Ánimo! 💪</span>`;
         speak(`No te preocupes. Inténtalo otra vez.`, 'es-ES', 0.9, 1.0);
+    }
+}
+
+function checkDaysWriting() {
+    const inputs = document.querySelectorAll('.day-input');
+    const feedback = document.getElementById('feedback-days-writing');
+    let correctCount = 0;
+
+    // Normalización para ser flexible con acentos
+    const normalize = (str) => {
+        return str.toLowerCase().trim().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    };
+
+    inputs.forEach(input => {
+        const userAnswer = input.value.trim().toLowerCase();
+        const correctAnswer = input.getAttribute('data-answer');
+
+        if (userAnswer === "") {
+            input.style.borderColor = "#ccc";
+            input.style.backgroundColor = "";
+        } else if (normalize(userAnswer) === normalize(correctAnswer)) {
+            input.style.borderColor = "#2ecc71";
+            input.style.backgroundColor = "#e8f8f0";
+            correctCount++;
+        } else {
+            input.style.borderColor = "#e74c3c";
+            input.style.backgroundColor = "#fdf2f2";
+        }
+    });
+
+    if (correctCount === inputs.length) {
+        feedback.innerHTML = '<span style="color: #27ae60;">¡Perfecto! Has escrito todos los días correctamente. 🏆</span>';
+        speak('¡Excelente! Todo correcto.', 'es-ES');
+    } else if (correctCount > 0) {
+        feedback.innerHTML = `<span style="color: #f39c12;">Vas por buen camino. Tienes ${correctCount} de ${inputs.length} correctos.</span>`;
+    } else {
+        feedback.innerHTML = '<span style="color: #e74c3c;">Intenta completar los espacios en español.</span>';
+    }
+}
+
+function checkMonthsWriting() {
+    const inputs = document.querySelectorAll('.month-input');
+    const feedback = document.getElementById('feedback-months-writing');
+    let correctCount = 0;
+
+    const normalize = (str) => {
+        return str.toLowerCase().trim().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    };
+
+    inputs.forEach(input => {
+        const userAnswer = input.value.trim().toLowerCase();
+        const correctAnswer = input.getAttribute('data-answer');
+
+        if (userAnswer === "") {
+            input.style.borderColor = "#ccc";
+            input.style.backgroundColor = "";
+        } else if (normalize(userAnswer) === normalize(correctAnswer)) {
+            input.style.borderColor = "#2ecc71";
+            input.style.backgroundColor = "#e8f8f0";
+            correctCount++;
+        } else {
+            input.style.borderColor = "#e74c3c";
+            input.style.backgroundColor = "#fdf2f2";
+        }
+    });
+
+    if (correctCount === inputs.length) {
+        feedback.innerHTML = '<span style="color: #27ae60;">¡Increíble! Te sabes todos los meses. 📅</span>';
+        speak('¡Increíble! Te sabes todos los meses.', 'es-ES');
+    } else if (correctCount > 0) {
+        feedback.innerHTML = `<span style="color: #f39c12;">Buen intento. Tienes ${correctCount} de ${inputs.length} correctos.</span>`;
+    } else {
+        feedback.innerHTML = '<span style="color: #e74c3c;">Escribe los meses en español para comprobar.</span>';
     }
 }
 
@@ -210,11 +285,11 @@ function speak(text, lang = 'es-ES', rate = 0.9, pitch = 1.0) {
 function speakInternal(text, lang, rate, pitch) {
     const utterance = new SpeechSynthesisUtterance(text);
     utterance.lang = lang;
-    utterance.rate = rate; 
+    utterance.rate = rate;
     utterance.pitch = pitch;
-    
+
     if (voices.length === 0) voices = window.speechSynthesis.getVoices();
-    
+
     // Find a FEMALE voice
     let preferredVoice;
     if (lang.startsWith('es')) {
