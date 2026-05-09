@@ -208,7 +208,7 @@
                         <span>1. Yo</span>
                         <input type="text" class="writing-input" data-answer="me llamo" placeholder="..."
                             style="padding: 5px 10px; border-radius: 8px; border: 1px solid #ccc; width: 120px;">
-                        <span>Hazle.</span>
+                        <span>Estudiante.</span>
                     </div>
                     <div class="writing-item" style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
                         <span>2. ¿Cómo</span>
@@ -616,6 +616,51 @@
                         <p><strong>English:</strong> In Spanish, we don't "are" an age, we "have" years. We use the verb
                             <strong>tener</strong>.</p>
                     </div>
+
+                    <h3><button onclick="speak('Conjugación', 'es-ES')"
+                            style="background:none; border:none; cursor:pointer; font-size:1rem; vertical-align: middle;">🔊</button>
+                        Conjugación / Conjugation</h3>
+                    <table class="conjugation-table">
+                        <thead>
+                            <tr>
+                                <th>Persona</th>
+                                <th>Tener (to have)</th>
+                                <th>Audio</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Yo (I)</td>
+                                <td><strong>tengo</strong></td>
+                                <td><button class="speak-btn" onclick="speak('Yo tengo', 'es-ES')">🔊</button></td>
+                            </tr>
+                            <tr>
+                                <td>Tú (You)</td>
+                                <td><strong>tienes</strong></td>
+                                <td><button class="speak-btn" onclick="speak('Tú tienes', 'es-ES')">🔊</button></td>
+                            </tr>
+                            <tr>
+                                <td>Él / Ella / Usted (He/She/You formal)</td>
+                                <td><strong>tiene</strong></td>
+                                <td><button class="speak-btn" onclick="speak('Él tiene', 'es-ES')">🔊</button></td>
+                            </tr>
+                            <tr>
+                                <td>Nosotros / Nosotras (We)</td>
+                                <td><strong>tenemos</strong></td>
+                                <td><button class="speak-btn" onclick="speak('Nosotros tenemos', 'es-ES')">🔊</button></td>
+                            </tr>
+                            <tr>
+                                <td>Vosotros / Vosotras (You all - Spain)</td>
+                                <td><strong>tenéis</strong></td>
+                                <td><button class="speak-btn" onclick="speak('Vosotros tenéis', 'es-ES')">🔊</button></td>
+                            </tr>
+                            <tr>
+                                <td>Ellos / Ellas / Ustedes (They / You all)</td>
+                                <td><strong>tienen</strong></td>
+                                <td><button class="speak-btn" onclick="speak('Ellos tienen', 'es-ES')">🔊</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
 
                     <div class="age-grid"
                         style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
