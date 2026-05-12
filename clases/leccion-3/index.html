@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lección 3: La Familia - SpanishIntuition</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="../index.html" class="back-link">← Volver al curso</a>
+            <h1>Lección 3: La Familia</h1>
+            <p class="subtitle">Family, Ser/Estar and Demonstratives</p>
+        </header>
+
+        <!-- Main Menu for the Lesson -->
+        <div id="course-menu" class="course-menu">
+            <div class="menu-card" onclick="showLesson(2)">
+                <div class="menu-icon">👨‍👩‍👧‍👦</div>
+                <h3>La Familia</h3>
+                <p>Complete vocabulary list.</p>
+            </div>
+            <div class="menu-card" onclick="showLesson(1)">
+                <div class="menu-icon">🔄</div>
+                <h3>Ser y Estar</h3>
+                <p>Rules and more examples.</p>
+            </div>
+            <div class="menu-card" onclick="showLesson(3)">
+                <div class="menu-icon">👈</div>
+                <h3>Demostrativos</h3>
+                <p>Este, esta, estos, estas.</p>
+            </div>
+            <div class="menu-card" onclick="showLesson(4)">
+                <div class="menu-icon">📖</div>
+                <h3>Lectura</h3>
+                <p>Marcos y su familia.</p>
+            </div>
+            <div class="menu-card" onclick="showLesson(5)">
+                <div class="menu-icon">📖</div>
+                <h3>Lectura y Práctica</h3>
+                <p>Text, vocab and 15 phrases.</p>
+            </div>
+        </div>
+
+        <!-- Navigation bar (hidden at start) -->
+        <div class="lesson-nav" style="display: none; margin-bottom: 2rem;">
+            <button class="nav-btn" onclick="goToMenu()">🏠 Menú de Lección</button>
+        </div>
+
+        <!-- SECTION 1: SER Y ESTAR REVIEW -->
+        <div id="lesson1" class="lesson-card">
+            <h2>Ser vs Estar: Repaso</h2>
+            <div class="explanation">
+                <p><strong>Ser:</strong> Used for identity, origin, profession, and <strong>family relationships</strong>.</p>
+                <p><strong>Estar:</strong> Used for location and temporary states/feelings.</p>
+            </div>
+
+            <table class="conjugation-table">
+                <thead>
+                    <tr>
+                        <th>Pronombre</th>
+                        <th>SER (to be)</th>
+                        <th>ESTAR (to be)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Yo</td>
+                        <td>Soy <button class="speak-btn" onclick="speak('Yo soy', 'es-ES')">🔊</button></td>
+                        <td>Estoy <button class="speak-btn" onclick="speak('Yo estoy', 'es-ES')">🔊</button></td>
+                    </tr>
+                    <tr>
+                        <td>Tú</td>
+                        <td>Eres <button class="speak-btn" onclick="speak('Tú eres', 'es-ES')">🔊</button></td>
+                        <td>Estás <button class="speak-btn" onclick="speak('Tú estás', 'es-ES')">🔊</button></td>
+                    </tr>
+                    <tr>
+                        <td>Él / Ella</td>
+                        <td>Es <button class="speak-btn" onclick="speak('Él es', 'es-ES')">🔊</button></td>
+                        <td>Está <button class="speak-btn" onclick="speak('Él está', 'es-ES')">🔊</button></td>
+                    </tr>
+                    <tr>
+                        <td>Nosotros</td>
+                        <td>Somos <button class="speak-btn" onclick="speak('Nosotros somos', 'es-ES')">🔊</button></td>
+                        <td>Estamos <button class="speak-btn" onclick="speak('Nosotros estamos', 'es-ES')">🔊</button></td>
+                    </tr>
+                    <tr>
+                        <td>Ellos / Ellas</td>
+                        <td>Son <button class="speak-btn" onclick="speak('Ellos son', 'es-ES')">🔊</button></td>
+                        <td>Están <button class="speak-btn" onclick="speak('Ellos están', 'es-ES')">🔊</button></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="exercise-container">
+                <h3>Más Ejemplos:</h3>
+                <div class="example-row">
+                    <button class="speak-btn" onclick="speak('Yo soy de Madrid', 'es-ES')">🔊</button>
+                    <span>Yo <strong>soy</strong> de Madrid. (Origin)</span>
+                </div>
+                <div class="example-row">
+                    <button class="speak-btn" onclick="speak('Tú eres muy inteligente', 'es-ES')">🔊</button>
+                    <span>Tú <strong>eres</strong> muy inteligente. (Characteristic)</span>
+                </div>
+                <div class="example-row">
+                    <button class="speak-btn" onclick="speak('Nosotros somos una familia feliz', 'es-ES')">🔊</button>
+                    <span>Nosotros <strong>somos</strong> una familia feliz. (Identity)</span>
+                </div>
+                <div class="example-row">
+                    <button class="speak-btn" onclick="speak('Yo estoy cansado hoy', 'es-ES')">🔊</button>
+                    <span>Yo <strong>estoy</strong> cansado hoy. (Temporary state)</span>
+                </div>
+                <div class="example-row">
+                    <button class="speak-btn" onclick="speak('¿Dónde estás?', 'es-ES')">🔊</button>
+                    <span>¿Dónde <strong>estás</strong>? (Location)</span>
+                </div>
+                <div class="example-row">
+                    <button class="speak-btn" onclick="speak('Ellos están en el parque', 'es-ES')">🔊</button>
+                    <span>Ellos <strong>están</strong> en el parque. (Location)</span>
+                </div>
+                <div class="example-row">
+                    <button class="speak-btn" onclick="speak('La comida está muy buena', 'es-ES')">🔊</button>
+                    <span>La comida <strong>está</strong> muy buena. (Specific state/taste)</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 2: LA FAMILIA VOCABULARY -->
+        <div id="lesson2" class="lesson-card">
+            <h2>Vocabulario: La Familia</h2>
+            <div class="explanation">
+                <p>Listen and repeat the family members. All members are here:</p>
+            </div>
+
+            <table class="conjugation-table">
+                <thead>
+                    <tr>
+                        <th>Español</th>
+                        <th>English</th>
+                        <th>Pronunciación</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>El padre</td><td>The father</td><td><button class="speak-btn" onclick="speak('El padre', 'es-ES')">🔊</button></td></tr>
+                    <tr><td>La madre</td><td>The mother</td><td><button class="speak-btn" onclick="speak('La madre', 'es-ES')">🔊</button></td></tr>
+                    <tr><td>El hermano</td><td>The brother</td><td><button class="speak-btn" onclick="speak('El hermano', 'es-ES')">🔊</button></td></tr>
+                    <tr><td>La hermana</td><td>The sister</td><td><button class="speak-btn" onclick="speak('La hermana', 'es-ES')">🔊</button></td></tr>
+                    <tr><td>El abuelo</td><td>The grandfather</td><td><button class="speak-btn" onclick="speak('El abuelo', 'es-ES')">🔊</button></td></tr>
+                    <tr><td>La abuela</td><td>The grandmother</td><td><button class="speak-btn" onclick="speak('La abuela', 'es-ES')">🔊</button></td></tr>
+                    <tr><td>El hijo</td><td>The son</td><td><button class="speak-btn" onclick="speak('El hijo', 'es-ES')">🔊</button></td></tr>
+                    <tr><td>La hija</td><td>The daughter</td><td><button class="speak-btn" onclick="speak('La hija', 'es-ES')">🔊</button></td></tr>
+                    <tr><td>El tío / La tía</td><td>The uncle / aunt</td><td><button class="speak-btn" onclick="speak('El tío, la tía', 'es-ES')">🔊</button></td></tr>
+                    <tr><td>El primo / La prima</td><td>The cousin (m/f)</td><td><button class="speak-btn" onclick="speak('El primo, la prima', 'es-ES')">🔊</button></td></tr>
+                    <tr><td>El sobrino / La sobrina</td><td>The nephew / niece</td><td><button class="speak-btn" onclick="speak('El sobrino, la sobrina', 'es-ES')">🔊</button></td></tr>
+                    <tr><td>El nieto / La nieta</td><td>The grandson / granddaughter</td><td><button class="speak-btn" onclick="speak('El nieto, la nieta', 'es-ES')">🔊</button></td></tr>
+                </tbody>
+            </table>
+
+            <div class="exercise-container" id="exercise-relationships">
+                <h3>Relaciones Familiares:</h3>
+                <p style="margin-bottom: 1rem; color: #666;">Translate these logical relationships into Spanish:</p>
+                
+                <div class="writing-item">
+                    <span>1. My father's father is my grandfather.</span>
+                    <input type="text" class="writing-input" data-answer="El padre de mi padre es mi abuelo" style="width: 350px;" placeholder="...">
+                    <button class="speak-btn" onclick="speak('El padre de mi padre es mi abuelo', 'es-ES')">🔊</button>
+                </div>
+                <div class="writing-item">
+                    <span>2. My mother's sister is my aunt.</span>
+                    <input type="text" class="writing-input" data-answer="La hermana de mi madre es mi tía" style="width: 350px;" placeholder="...">
+                    <button class="speak-btn" onclick="speak('La hermana de mi madre es mi tía', 'es-ES')">🔊</button>
+                </div>
+                <div class="writing-item">
+                    <span>3. My father's brother is my uncle.</span>
+                    <input type="text" class="writing-input" data-answer="El hermano de mi padre es mi tío" style="width: 350px;" placeholder="...">
+                    <button class="speak-btn" onclick="speak('El hermano de mi padre es mi tío', 'es-ES')">🔊</button>
+                </div>
+                <div class="writing-item">
+                    <span>4. My uncle's son is my cousin.</span>
+                    <input type="text" class="writing-input" data-answer="El hijo de mi tío es mi primo" style="width: 350px;" placeholder="...">
+                    <button class="speak-btn" onclick="speak('El hijo de mi tío es mi primo', 'es-ES')">🔊</button>
+                </div>
+                <div class="writing-item">
+                    <span>5. My mother's mother is my grandmother.</span>
+                    <input type="text" class="writing-input" data-answer="La madre de mi madre es mi abuela" style="width: 350px;" placeholder="...">
+                    <button class="speak-btn" onclick="speak('La madre de mi madre es mi abuela', 'es-ES')">🔊</button>
+                </div>
+                <div class="writing-item">
+                    <span>6. My parents' daughter is my sister.</span>
+                    <input type="text" class="writing-input" data-answer="La hija de mis padres es mi hermana" style="width: 350px;" placeholder="...">
+                    <button class="speak-btn" onclick="speak('La hija de mis padres es mi hermana', 'es-ES')">🔊</button>
+                </div>
+                <div class="writing-item">
+                    <span>7. My brother's daughter is my niece.</span>
+                    <input type="text" class="writing-input" data-answer="La hija de mi hermano es mi sobrina" style="width: 350px;" placeholder="...">
+                    <button class="speak-btn" onclick="speak('La hija de mi hermano es mi sobrina', 'es-ES')">🔊</button>
+                </div>
+                <div class="writing-item">
+                    <span>8. My sister's son is my nephew.</span>
+                    <input type="text" class="writing-input" data-answer="El hijo de mi hermana es mi sobrino" style="width: 350px;" placeholder="...">
+                    <button class="speak-btn" onclick="speak('El hijo de mi hermana es mi sobrino', 'es-ES')">🔊</button>
+                </div>
+                <div class="writing-item">
+                    <span>9. My daughter's son is my grandson.</span>
+                    <input type="text" class="writing-input" data-answer="El hijo de mi hija es mi nieto" style="width: 350px;" placeholder="...">
+                    <button class="speak-btn" onclick="speak('El hijo de mi hija es mi nieto', 'es-ES')">🔊</button>
+                </div>
+                <div class="writing-item">
+                    <span>10. My son's daughter is my granddaughter.</span>
+                    <input type="text" class="writing-input" data-answer="La hija de mi hijo es mi nieta" style="width: 350px;" placeholder="...">
+                    <button class="speak-btn" onclick="speak('La hija de mi hijo es mi nieta', 'es-ES')">🔊</button>
+                </div>
+
+                <button class="nav-btn" style="margin-top: 1rem;" onclick="checkWriting('exercise-relationships')">Comprobar Lógica</button>
+                <div class="feedback"></div>
+            </div>
+        </div>
+
+        <!-- SECTION 3: DEMOSTRATIVOS -->
+        <div id="lesson3" class="lesson-card">
+            <h2>Demostrativos y Objetos</h2>
+            <div class="explanation">
+                <p>Use these to point out things near you:</p>
+                <ul>
+                    <li><strong>Este:</strong> This (Masculine Singular)</li>
+                    <li><strong>Esta:</strong> This (Feminine Singular)</li>
+                    <li><strong>Estos:</strong> These (Masculine Plural)</li>
+                    <li><strong>Estas:</strong> These (Feminine Plural)</li>
+                </ul>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem;">
+                <!-- Objects List -->
+                <div style="background: #fdfdfd; padding: 1rem; border-radius: 12px; border: 1px solid #eee;">
+                    <h3 style="font-size: 1.1rem; margin-bottom: 1rem;">Objetos Cotidianos:</h3>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
+                        <div>📖 <strong>Libro</strong> (m)</div>
+                        <div>🪑 <strong>Mesa</strong> (f)</div>
+                        <div>✏️ <strong>Lápiz</strong> (m)</div>
+                        <div>🍎 <strong>Manzana</strong> (f)</div>
+                        <div>🚗 <strong>Coches</strong> (m.pl)</div>
+                        <div>🌸 <strong>Flores</strong> (f.pl)</div>
+                    </div>
+                </div>
+
+                <!-- Colors List -->
+                <div style="background: #fdfdfd; padding: 1rem; border-radius: 12px; border: 1px solid #eee;">
+                    <h3 style="font-size: 1.1rem; margin-bottom: 1rem;">Colores:</h3>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; font-weight: bold;">
+                        <div style="color: #c0392b;">Rojo</div>
+                        <div style="color: #2980b9;">Azul</div>
+                        <div style="color: #27ae60;">Verde</div>
+                        <div style="color: #f1c40f; text-shadow: 1px 1px 1px #999;">Amarillo</div>
+                        <div style="color: #000;">Negro</div>
+                        <div style="color: #fff; text-shadow: 1px 1px 2px #000;">Blanco</div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="exercise-demo" class="writing-exercise">
+                <h3>Práctica Combinada:</h3>
+                <p style="color: #666; margin-bottom: 1rem;">Combine Demonstrative + Object + Verb SER + Color:</p>
+                
+                <div class="writing-item">
+                    <span>1. (This, masc) book is red.</span>
+                    <input type="text" class="writing-input" data-answer="Este libro es rojo" style="width: 300px;" placeholder="...">
+                    <button class="speak-btn" onclick="speak('Este libro es rojo', 'es-ES')">🔊</button>
+                </div>
+                <div class="writing-item">
+                    <span>2. (This, fem) table is blue.</span>
+                    <input type="text" class="writing-input" data-answer="Esta mesa es azul" style="width: 300px;" placeholder="...">
+                    <button class="speak-btn" onclick="speak('Esta mesa es azul', 'es-ES')">🔊</button>
+                </div>
+                <div class="writing-item">
+                    <span>3. (These, masc) cars are green.</span>
+                    <input type="text" class="writing-input" data-answer="Estos coches son verdes" style="width: 300px;" placeholder="...">
+                    <button class="speak-btn" onclick="speak('Estos coches son verdes', 'es-ES')">🔊</button>
+                </div>
+                <div class="writing-item">
+                    <span>4. (These, fem) flowers are yellow.</span>
+                    <input type="text" class="writing-input" data-answer="Estas flores son amarillas" style="width: 300px;" placeholder="...">
+                    <button class="speak-btn" onclick="speak('Estas flores son amarillas', 'es-ES')">🔊</button>
+                </div>
+                <div class="writing-item">
+                    <span>5. (This, masc) pencil is black.</span>
+                    <input type="text" class="writing-input" data-answer="Este lápiz es negro" style="width: 300px;" placeholder="...">
+                    <button class="speak-btn" onclick="speak('Este lápiz es negro', 'es-ES')">🔊</button>
+                </div>
+                <div class="writing-item">
+                    <span>6. (This, fem) apple is white.</span>
+                    <input type="text" class="writing-input" data-answer="Esta manzana es blanca" style="width: 300px;" placeholder="...">
+                    <button class="speak-btn" onclick="speak('Esta manzana es blanca', 'es-ES')">🔊</button>
+                </div>
+                
+                <button class="nav-btn" style="margin-top: 1rem;" onclick="checkWriting('exercise-demo')">Comprobar</button>
+                <div class="feedback"></div>
+            </div>
+        </div>
+
+        <!-- SECTION 4: READING TEXT -->
+        <div id="lesson4" class="lesson-card">
+            <h2>Mi Familia: Marcos</h2>
+            <div class="explanation">
+                <p>Repasa los verbos clave antes de leer el texto:</p>
+                <div style="background: #e3f2fd; padding: 1rem; border-radius: 8px; border-left: 4px solid #2196f3; margin-top: 1rem;">
+                    <p><strong>💡 Pro Tip:</strong> In Spanish, we usually omit the subject pronouns (<em>Yo, Tú, Él...</em>) because the verb endings already identify the person. For example, instead of saying <strong>"Yo soy"</strong>, we often just say <strong>"Soy"</strong>.</p>
+                </div>
+            </div>
+
+            <!-- Verb Review Grid -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 2rem;">
+                <!-- SER -->
+                <div style="background: white; border: 1px solid #eee; border-radius: 12px; padding: 1rem;">
+                    <h4 style="color: var(--accent-color); margin-bottom: 0.5rem; text-align: center;">SER</h4>
+                    <table style="width: 100%; font-size: 0.9rem;">
+                        <tr><td>Yo <strong>soy</strong></td><td><button class="speak-btn" onclick="speak('Yo soy', 'es-ES')">🔊</button></td></tr>
+                        <tr><td>Tú <strong>eres</strong></td><td><button class="speak-btn" onclick="speak('Tú eres', 'es-ES')">🔊</button></td></tr>
+                        <tr><td>Él/Ella <strong>es</strong></td><td><button class="speak-btn" onclick="speak('Él es', 'es-ES')">🔊</button></td></tr>
+                        <tr><td>Nosotros <strong>somos</strong></td><td><button class="speak-btn" onclick="speak('Nosotros somos', 'es-ES')">🔊</button></td></tr>
+                        <tr><td>Ellos/as <strong>son</strong></td><td><button class="speak-btn" onclick="speak('Ellos son', 'es-ES')">🔊</button></td></tr>
+                    </table>
+                </div>
+                <!-- ESTAR -->
+                <div style="background: white; border: 1px solid #eee; border-radius: 12px; padding: 1rem;">
+                    <h4 style="color: var(--accent-color); margin-bottom: 0.5rem; text-align: center;">ESTAR</h4>
+                    <table style="width: 100%; font-size: 0.9rem;">
+                        <tr><td>Yo <strong>estoy</strong></td><td><button class="speak-btn" onclick="speak('Yo estoy', 'es-ES')">🔊</button></td></tr>
+                        <tr><td>Tú <strong>estás</strong></td><td><button class="speak-btn" onclick="speak('Tú estás', 'es-ES')">🔊</button></td></tr>
+                        <tr><td>Él/Ella <strong>está</strong></td><td><button class="speak-btn" onclick="speak('Él está', 'es-ES')">🔊</button></td></tr>
+                        <tr><td>Nosotros <strong>estamos</strong></td><td><button class="speak-btn" onclick="speak('Nosotros estamos', 'es-ES')">🔊</button></td></tr>
+                        <tr><td>Ellos/as <strong>están</strong></td><td><button class="speak-btn" onclick="speak('Ellos están', 'es-ES')">🔊</button></td></tr>
+                    </table>
+                </div>
+                <!-- TENER -->
+                <div style="background: white; border: 1px solid #eee; border-radius: 12px; padding: 1rem;">
+                    <h4 style="color: var(--accent-color); margin-bottom: 0.5rem; text-align: center;">TENER</h4>
+                    <table style="width: 100%; font-size: 0.9rem;">
+                        <tr><td>Yo <strong>tengo</strong></td><td><button class="speak-btn" onclick="speak('Yo tengo', 'es-ES')">🔊</button></td></tr>
+                        <tr><td>Tú <strong>tienes</strong></td><td><button class="speak-btn" onclick="speak('Tú tienes', 'es-ES')">🔊</button></td></tr>
+                        <tr><td>Él/Ella <strong>tiene</strong></td><td><button class="speak-btn" onclick="speak('Él tiene', 'es-ES')">🔊</button></td></tr>
+                        <tr><td>Nosotros <strong>tenemos</strong></td><td><button class="speak-btn" onclick="speak('Nosotros tenemos', 'es-ES')">🔊</button></td></tr>
+                        <tr><td>Ellos/as <strong>tienen</strong></td><td><button class="speak-btn" onclick="speak('Ellos tienen', 'es-ES')">🔊</button></td></tr>
+                    </table>
+                </div>
+                <!-- VIVIR -->
+                <div style="background: white; border: 1px solid #eee; border-radius: 12px; padding: 1rem;">
+                    <h4 style="color: var(--accent-color); margin-bottom: 0.5rem; text-align: center;">VIVIR</h4>
+                    <table style="width: 100%; font-size: 0.9rem;">
+                        <tr><td>Yo <strong>vivo</strong></td><td><button class="speak-btn" onclick="speak('Yo vivo', 'es-ES')">🔊</button></td></tr>
+                        <tr><td>Tú <strong>vives</strong></td><td><button class="speak-btn" onclick="speak('Tú vives', 'es-ES')">🔊</button></td></tr>
+                        <tr><td>Él/Ella <strong>vive</strong></td><td><button class="speak-btn" onclick="speak('Él vive', 'es-ES')">🔊</button></td></tr>
+                        <tr><td>Nosotros <strong>vivimos</strong></td><td><button class="speak-btn" onclick="speak('Nosotros vivimos', 'es-ES')">🔊</button></td></tr>
+                        <tr><td>Ellos/as <strong>viven</strong></td><td><button class="speak-btn" onclick="speak('Ellos viven', 'es-ES')">🔊</button></td></tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="reading-container">
+                <button class="speak-btn" style="position: absolute; top: 10px; right: 10px;" onclick="speak('Hola, soy Marcos. Tengo veinticinco años. Soy de Madrid pero vivo en Londres con mi familia. Estoy muy feliz aquí. Mi familia es grande. Este es mi padre, se llama Juan. Estas son mis hermanas, Lucía y Marta. Mi hermano se llama Pedro. Tenemos una casa bonita.', 'es-ES')">🔊 Escuchar texto completo</button>
+                <p class="reading-text">
+                    "Hola, <strong>soy</strong> Marcos. <strong>Tengo</strong> 25 años. <strong>Soy</strong> de Madrid pero <strong>vivo</strong> en Londres con mi familia. <strong>Estoy</strong> muy feliz aquí. Mi familia <strong>es</strong> grande. <strong>Este es</strong> mi padre, se llama Juan. <strong>Estas son</strong> mis hermanas, Lucía y Marta. Mi hermano se llama Pedro. <strong>Tenemos</strong> una casa bonita."
+                </p>
+            </div>
+
+            <div id="exercise-reading" class="writing-exercise">
+                <h3>Completar según el texto:</h3>
+                <div class="writing-item">
+                    <span>1. Marcos</span>
+                    <input type="text" class="writing-input" data-answer="tiene" placeholder="verbo tener">
+                    <span>25 años.</span>
+                </div>
+                <div class="writing-item">
+                    <span>2. Él</span>
+                    <input type="text" class="writing-input" data-answer="vive" placeholder="verbo vivir">
+                    <span>en Londres.</span>
+                </div>
+                <div class="writing-item">
+                    <span>3. Sus hermanas</span>
+                    <input type="text" class="writing-input" data-answer="son" placeholder="verbo ser">
+                    <span>Lucía y Marta.</span>
+                </div>
+                <div class="writing-item">
+                    <span>4. Él</span>
+                    <input type="text" class="writing-input" data-answer="esta" placeholder="verbo estar">
+                    <span>muy feliz.</span>
+                </div>
+                
+                <button class="nav-btn" style="margin-top: 1rem;" onclick="checkWriting('exercise-reading')">Comprobar</button>
+                <div class="feedback"></div>
+            </div>
+        </div>
+        <!-- SECTION 5: TRANSLATION PRACTICE -->
+        <div id="lesson5" class="lesson-card">
+            <h2>Lectura y Vocabulario</h2>
+            
+            <!-- Long Text Section -->
+            <div class="exercise-container">
+                <h3>Lectura Avanzada: La Familia de Alejandro</h3>
+                <div class="explanation">
+                    <p>Listen to Alejandro describing his family in detail. Compare the Spanish and English versions.</p>
+                </div>
+                
+                <div class="reading-container">
+                    <button class="speak-btn" style="position: absolute; top: 10px; right: 10px;" onclick="speak('Hola, me llamo Alejandro y tengo treinta años. Mi familia es muy especial para mí. Vivo en una casa grande en Valencia con mis padres y mi abuela. Mi padre se llama Ricardo y es ingeniero. Mi madre se llama Elena y es profesora de música. Son personas muy trabajadoras. Tengo dos hermanas menores, Sofía y Laura. Ellas están estudiando en la universidad. También tengo un hermano mayor que vive en Madrid con su esposa y mi sobrino, que es un bebé encantador. Mi tío favorito es el hermano de mi madre; él es muy divertido y siempre nos cuenta historias de sus viajes. Los fines de semana, todos nos reunimos para comer paella. Estoy muy orgulloso de mi familia porque siempre estamos juntos en los momentos importantes.', 'es-ES')">🔊 Escuchar en Español</button>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                        <div class="reading-text" style="font-style: italic; border-right: 1px solid #eee; padding-right: 1rem;">
+                            <h4 style="color: var(--accent-color); margin-bottom: 0.5rem;">Español</h4>
+                            "Hola, me llamo <strong>Alejandro</strong> y <strong>tengo</strong> treinta años. Mi familia <strong>es</strong> muy especial para mí. <strong>Vivo</strong> en una casa grande en Valencia con mis padres y mi abuela. Mi padre se llama Ricardo y <strong>es</strong> ingeniero. Mi madre se llama Elena y <strong>es</strong> profesora de música. <strong>Son</strong> personas muy trabajadoras. <strong>Tengo</strong> dos hermanas menores, Sofía y Laura. Ellas <strong>están</strong> estudiando en la universidad. También <strong>tengo</strong> un hermano mayor que <strong>vive</strong> en Madrid con su esposa y mi sobrino, que <strong>es</strong> un bebé encantador. Mi tío favorito <strong>es</strong> el hermano de mi madre; él <strong>es</strong> muy divertido y siempre nos cuenta historias de sus viajes. Los fines de semana, todos nos reunimos para comer paella. <strong>Estoy</strong> muy orgulloso de mi familia porque siempre <strong>estamos</strong> juntos en los momentos importantes."
+                        </div>
+                        <div class="reading-text" style="color: #636e72;">
+                            <h4 style="color: var(--secondary-accent); margin-bottom: 0.5rem;">English</h4>
+                            "Hello, my name is <strong>Alejandro</strong> and I am thirty years old. My family <strong>is</strong> very special to me. I <strong>live</strong> in a large house in Valencia with my parents and my grandmother. My father's name is Ricardo and he <strong>is</strong> an engineer. My mother's name is Elena and she <strong>is</strong> a music teacher. They <strong>are</strong> very hard-working people. I <strong>have</strong> two younger sisters, Sofia and Laura. They <strong>are</strong> studying at the university. I also <strong>have</strong> an older brother who <strong>lives</strong> in Madrid with his wife and my nephew, who <strong>is</strong> a charming baby. My favorite uncle <strong>is</strong> my mother's brother; he <strong>is</strong> very funny and always tells us stories about his travels. On weekends, we all get together to eat paella. I <strong>am</strong> very proud of my family because we <strong>are</strong> always together during important moments."
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vocabulary Summary -->
+            <div class="exercise-container" style="border-top: 1px solid #eee; border-bottom: 1px solid #eee; margin-top: 2rem; padding: 2rem 0;">
+                <h3>Resumen de Vocabulario:</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; background: #f8f9fa; padding: 1.5rem; border-radius: 12px;">
+                    <div><strong>Padre:</strong> Father</div>
+                    <div><strong>Madre:</strong> Mother</div>
+                    <div><strong>Hijo/a:</strong> Son/Daughter</div>
+                    <div><strong>Abuelo/a:</strong> Grandfather/mother</div>
+                    <div><strong>Tío/a:</strong> Uncle/Aunt</div>
+                    <div><strong>Primo/a:</strong> Cousin</div>
+                    <div><strong>Sobrino/a:</strong> Nephew/Niece</div>
+                    <div><strong>Nieto/a:</strong> Grandson/daughter</div>
+                    <div><strong>Hermano/a:</strong> Brother/Sister</div>
+                </div>
+            </div>
+
+            <div class="exercise-container" style="margin-top: 2rem;">
+                <h3>Práctica: 15 Frases de Traducción</h3>
+                <div class="explanation">
+                    <p>Translate the following phrases from English to Spanish. Use the vocabulary above for help.</p>
+                </div>
+
+                <div id="exercise-translation" class="writing-exercise">
+                    <div class="writing-item">
+                        <span>1. I am at home.</span>
+                        <input type="text" class="writing-input" data-answer="Estoy en casa" style="width: 250px;" placeholder="Traduce...">
+                        <button class="speak-btn" onclick="speak('Estoy en casa', 'es-ES')">🔊</button>
+                    </div>
+                    <div class="writing-item">
+                        <span>2. He is my brother.</span>
+                        <input type="text" class="writing-input" data-answer="Él es mi hermano" style="width: 250px;" placeholder="Traduce...">
+                        <button class="speak-btn" onclick="speak('Él es mi hermano', 'es-ES')">🔊</button>
+                    </div>
+                    <div class="writing-item">
+                        <span>3. They are from Spain.</span>
+                        <input type="text" class="writing-input" data-answer="Ellos son de España" style="width: 250px;" placeholder="Traduce...">
+                        <button class="speak-btn" onclick="speak('Ellos son de España', 'es-ES')">🔊</button>
+                    </div>
+                    <div class="writing-item">
+                        <span>4. We are happy.</span>
+                        <input type="text" class="writing-input" data-answer="Estamos felices" style="width: 250px;" placeholder="Traduce...">
+                        <button class="speak-btn" onclick="speak('Estamos felices', 'es-ES')">🔊</button>
+                    </div>
+                    <div class="writing-item">
+                        <span>5. You are a student.</span>
+                        <input type="text" class="writing-input" data-answer="Eres estudiante" style="width: 250px;" placeholder="Traduce...">
+                        <button class="speak-btn" onclick="speak('Eres estudiante', 'es-ES')">🔊</button>
+                    </div>
+                    <div class="writing-item">
+                        <span>6. My father is tall.</span>
+                        <input type="text" class="writing-input" data-answer="Mi padre es alto" style="width: 250px;" placeholder="Traduce...">
+                        <button class="speak-btn" onclick="speak('Mi padre es alto', 'es-ES')">🔊</button>
+                    </div>
+                    <div class="writing-item">
+                        <span>7. Where is the museum?</span>
+                        <input type="text" class="writing-input" data-answer="¿Dónde está el museo?" style="width: 250px;" placeholder="Traduce...">
+                        <button class="speak-btn" onclick="speak('¿Dónde está el museo?', 'es-ES')">🔊</button>
+                    </div>
+                    <div class="writing-item">
+                        <span>8. She is my grandmother.</span>
+                        <input type="text" class="writing-input" data-answer="Ella es mi abuela" style="width: 250px;" placeholder="Traduce...">
+                        <button class="speak-btn" onclick="speak('Ella es mi abuela', 'es-ES')">🔊</button>
+                    </div>
+                    <div class="writing-item">
+                        <span>9. My brothers are here.</span>
+                        <input type="text" class="writing-input" data-answer="Mis hermanos están aquí" style="width: 250px;" placeholder="Traduce...">
+                        <button class="speak-btn" onclick="speak('Mis hermanos están aquí', 'es-ES')">🔊</button>
+                    </div>
+                    <div class="writing-item">
+                        <span>10. The table is big.</span>
+                        <input type="text" class="writing-input" data-answer="La mesa es grande" style="width: 250px;" placeholder="Traduce...">
+                        <button class="speak-btn" onclick="speak('La mesa es grande', 'es-ES')">🔊</button>
+                    </div>
+                    <div class="writing-item">
+                        <span>11. I have a sister.</span>
+                        <input type="text" class="writing-input" data-answer="Tengo una hermana" style="width: 250px;" placeholder="Traduce...">
+                        <button class="speak-btn" onclick="speak('Tengo una hermana', 'es-ES')">🔊</button>
+                    </div>
+                    <div class="writing-item">
+                        <span>12. This is my house.</span>
+                        <input type="text" class="writing-input" data-answer="Esta es mi casa" style="width: 250px;" placeholder="Traduce...">
+                        <button class="speak-btn" onclick="speak('Esta es mi casa', 'es-ES')">🔊</button>
+                    </div>
+                    <div class="writing-item">
+                        <span>13. These are my parents.</span>
+                        <input type="text" class="writing-input" data-answer="Estos son mis padres" style="width: 250px;" placeholder="Traduce...">
+                        <button class="speak-btn" onclick="speak('Estos son mis padres', 'es-ES')">🔊</button>
+                    </div>
+                    <div class="writing-item">
+                        <span>14. How are you?</span>
+                        <input type="text" class="writing-input" data-answer="¿Cómo estás?" style="width: 250px;" placeholder="Traduce...">
+                        <button class="speak-btn" onclick="speak('¿Cómo estás?', 'es-ES')">🔊</button>
+                    </div>
+                    <div class="writing-item">
+                        <span>15. The sun is yellow.</span>
+                        <input type="text" class="writing-input" data-answer="El sol es amarillo" style="width: 250px;" placeholder="Traduce...">
+                        <button class="speak-btn" onclick="speak('El sol es amarillo', 'es-ES')">🔊</button>
+                    </div>
+                    
+                    <button class="nav-btn" style="margin-top: 1rem;" onclick="checkWriting('exercise-translation')">Comprobar Respuestas</button>
+                    <div class="feedback"></div>
+                </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
