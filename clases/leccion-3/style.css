@@ -82,7 +82,7 @@ h1 {
 .menu-card:hover {
     transform: translateY(-5px);
     border-color: var(--accent-color);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
 }
 
 .menu-icon {
@@ -129,7 +129,8 @@ h1 {
     border-radius: var(--border-radius);
     box-shadow: var(--shadow);
     animation: fadeIn 0.5s ease;
-    display: none; /* Hidden by default */
+    display: none;
+    /* Hidden by default */
 }
 
 @keyframes fadeIn {
@@ -137,6 +138,7 @@ h1 {
         opacity: 0;
         transform: translateY(10px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -339,7 +341,20 @@ h2 {
         margin: 0.5rem auto;
         padding: 0 0.8rem;
     }
-    h1 { font-size: 2.2rem; }
-    h2 { font-size: 1.4rem; }
-    .drop-zones { grid-template-columns: 1fr; }
+
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    h2 {
+        font-size: 1.4rem;
+    }
+
+    .drop-zones {
+        grid-template-columns: 1fr;
+    }
+
+    .reading-container {
+        padding-top: 5.5rem;
+    }
 }
